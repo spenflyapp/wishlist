@@ -6,137 +6,245 @@
 <title>Wishlist Cumple 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Fredoka:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --arena:#FFF6E9;
-    --arena-2:#FFEFD6;
-    --coral:#FF6B5C;
-    --coral-dark:#E8503F;
-    --mar:#1FB6C1;
-    --mar-dark:#138C95;
-    --sol:#FFC94D;
-    --noche:#1A3A52;
-    --noche-soft:#2C5470;
-    --r:26px;
-    --shadow:0 18px 40px -18px rgba(26,58,82,.35);
-    --shadow-hover:0 32px 60px -20px rgba(26,58,82,.45);
+    --noche:#0B0713;
+    --noche-2:#150D24;
+    --morado:#2A1B4A;
+    --morado-soft:#B9A7D8;
+    --calabaza:#FF7A18;
+    --calabaza-dark:#D95A0A;
+    --ambar:#FFB13D;
+    --brasa:#FF4D1C;
+    --musgo:#5C8A3C;
+    --corteza:#3A2418;
+    --crema:#FFE9C9;
+    --crema-soft:#C9B6A0;
+    --r:22px;
+    --shadow:0 20px 44px -18px rgba(0,0,0,.75);
+    --shadow-hover:0 30px 66px -20px rgba(255,122,24,.45), 0 20px 44px -18px rgba(0,0,0,.8);
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
 
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;background:var(--noche)}
 
   body{
     font-family:'DM Sans',sans-serif;
-    color:var(--noche);
+    color:var(--crema);
     background:transparent;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
   }
 
-  /* ---------- Fondo ambiental ---------- */
+  /* ============ FONDO: NOCHE DE OTOÑO ============ */
+
+  /* cielo nocturno con horizonte cálido */
   .sky{
-    position:fixed;inset:0;z-index:-3;
-    background:linear-gradient(180deg,#FFE6B8 0%,#FFD9C2 35%,var(--arena) 70%);
+    position:fixed;inset:0;z-index:-9;
+    background:
+      radial-gradient(120% 70% at 50% 96%, rgba(255,122,24,.30) 0%, rgba(255,77,28,.10) 35%, rgba(0,0,0,0) 68%),
+      linear-gradient(180deg,#07040F 0%,#130B26 28%,#241543 52%,#3B1E46 72%,#5E2B3C 88%,#7A3A2A 100%);
   }
-  .sun{
-    position:fixed;
-    top:-90px;left:50%;
-    width:340px;height:340px;
-    margin-left:-170px;
-    border-radius:50%;
-    background:radial-gradient(circle at 50% 50%,#FFE08A 0%,var(--sol) 45%,#FFB23E 75%,rgba(255,178,62,0) 78%);
-    z-index:-2;
-    animation:sunPulse 7s ease-in-out infinite;
-    filter:blur(.3px);
+
+  /* estrellas */
+  .stars{position:fixed;inset:0 0 35% 0;z-index:-8;pointer-events:none;overflow:hidden}
+  .star{
+    position:absolute;border-radius:50%;background:#FFF6DF;
+    animation:twinkle 4s ease-in-out infinite;
   }
-  @keyframes sunPulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.06)}
+  @keyframes twinkle{
+    0%,100%{opacity:.15;transform:scale(.7)}
+    50%{opacity:.95;transform:scale(1)}
   }
-  /* olas SVG al fondo */
-  .waves{
-    position:fixed;bottom:0;left:0;width:100%;z-index:15;line-height:0;
+
+  /* luna llena */
+  .moon{
+    position:fixed;top:5vh;left:76%;
+    width:min(230px,38vw);aspect-ratio:1;
+    margin-left:calc(min(230px,38vw) / -2);
+    border-radius:50%;z-index:-7;
+    background:
+      radial-gradient(circle at 63% 31%, rgba(198,164,116,.55) 0 8%, rgba(0,0,0,0) 9%),
+      radial-gradient(circle at 41% 63%, rgba(198,164,116,.45) 0 11%, rgba(0,0,0,0) 12%),
+      radial-gradient(circle at 69% 67%, rgba(198,164,116,.38) 0 6%, rgba(0,0,0,0) 7%),
+      radial-gradient(circle at 34% 27%, rgba(198,164,116,.30) 0 5%, rgba(0,0,0,0) 6%),
+      radial-gradient(circle at 38% 34%, #FFF8E0 0%, #FFEBBC 42%, #F2D191 72%, #DBB272 100%);
+    box-shadow:
+      0 0 70px 18px rgba(255,214,138,.30),
+      0 0 180px 70px rgba(255,140,50,.16);
+    animation:moonGlow 9s ease-in-out infinite;
+  }
+  @keyframes moonGlow{
+    0%,100%{box-shadow:0 0 70px 18px rgba(255,214,138,.28),0 0 180px 70px rgba(255,140,50,.14)}
+    50%{box-shadow:0 0 92px 26px rgba(255,214,138,.42),0 0 220px 90px rgba(255,140,50,.22)}
+  }
+
+  /* nubes deshilachadas cruzando la luna */
+  .clouds{position:fixed;inset:0 0 auto 0;height:60vh;z-index:-6;pointer-events:none;overflow:hidden}
+  .cloud{
+    position:absolute;height:70px;width:520px;
+    background:radial-gradient(60% 100% at 30% 55%, rgba(60,40,80,.75), rgba(60,40,80,0) 70%),
+               radial-gradient(55% 100% at 62% 45%, rgba(45,30,65,.7), rgba(45,30,65,0) 72%);
+    filter:blur(8px);
+    animation:drift linear infinite;
+  }
+  @keyframes drift{
+    from{transform:translateX(-40vw)}
+    to{transform:translateX(120vw)}
+  }
+
+  /* murciélagos */
+  .bats{position:fixed;inset:0;z-index:-5;pointer-events:none;overflow:hidden}
+  .bat{position:absolute;animation:batPath linear infinite}
+  .bat svg{display:block;fill:#0C0714;animation:flap .28s ease-in-out infinite alternate}
+  @keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.45)}}
+  @keyframes batPath{
+    0%{transform:translate(-12vw,0) rotate(-4deg)}
+    25%{transform:translate(18vw,-5vh) rotate(5deg)}
+    50%{transform:translate(48vw,3vh) rotate(-5deg)}
+    75%{transform:translate(78vw,-4vh) rotate(4deg)}
+    100%{transform:translate(112vw,1vh) rotate(-3deg)}
+  }
+
+  /* capas de bosque */
+  .layer{
+    position:fixed;left:0;width:100%;pointer-events:none;line-height:0;
+    display:flex;justify-content:center;overflow:hidden;
+  }
+  /* el bosque escala con el ancho, pero nunca por debajo de 1100px:
+     así la cabaña sigue viéndose en móvil (se recortan los laterales) */
+  .layer svg{width:100%;min-width:1100px;flex:none;display:block}
+  .layer.far{bottom:90px;z-index:-4;opacity:.85}
+  .layer.mid{bottom:36px;z-index:-3}
+  .layer.near{bottom:0;z-index:13}
+
+  /* ventanas y fuego encendido */
+  .flicker{animation:flick 3.1s ease-in-out infinite}
+  .flicker-2{animation:flick 2.3s ease-in-out infinite .4s}
+  @keyframes flick{
+    0%,100%{opacity:1}
+    18%{opacity:.72}
+    26%{opacity:.95}
+    44%{opacity:.6}
+    58%{opacity:1}
+    72%{opacity:.8}
+  }
+  .bulb{animation:bulbPulse 2.6s ease-in-out infinite}
+  @keyframes bulbPulse{0%,100%{opacity:1}50%{opacity:.45}}
+  .smoke{animation:smokeUp 7s ease-out infinite;transform-origin:center}
+  @keyframes smokeUp{
+    0%{opacity:0;transform:translate(0,0) scale(.5)}
+    15%{opacity:.5}
+    100%{opacity:0;transform:translate(-26px,-110px) scale(2.6)}
+  }
+
+  /* niebla */
+  .fog{
+    position:fixed;left:0;width:200%;pointer-events:none;
+    background:
+      /* el patrón se repite cada 50% para que el bucle sea invisible */
+      radial-gradient(22% 100% at 12% 60%, rgba(200,180,220,.16), rgba(0,0,0,0) 70%),
+      radial-gradient(22% 100% at 62% 60%, rgba(200,180,220,.16), rgba(0,0,0,0) 70%),
+      radial-gradient(18% 100% at 34% 46%, rgba(255,200,160,.13), rgba(0,0,0,0) 70%),
+      radial-gradient(18% 100% at 84% 46%, rgba(255,200,160,.13), rgba(0,0,0,0) 70%);
+    filter:blur(6px);
+  }
+  .fog.a{bottom:60px;height:180px;z-index:-2;animation:fogSlide 48s linear infinite}
+  .fog.b{bottom:0;height:150px;z-index:14;animation:fogSlide 34s linear infinite reverse;opacity:.85}
+  @keyframes fogSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* suelo del bosque: aquí las tarjetas se hunden entre la hojarasca */
+  .ground-body{
+    position:fixed;bottom:0;left:0;width:100%;height:52px;z-index:15;
+    background:
+      radial-gradient(60% 200% at 30% 0%, rgba(255,122,24,.10), rgba(0,0,0,0) 70%),
+      linear-gradient(180deg,#0A0610,#060310);
     pointer-events:none;
   }
-  .waves svg{width:200%;height:150px;display:block}
-  /* cuerpo de agua sólido bajo las olas: aquí las tarjetas quedan totalmente sumergidas */
-  .water-body{
-    position:fixed;bottom:0;left:0;width:100%;height:45px;z-index:15;
-    background:linear-gradient(180deg,#138C95,#0d6f77);
-    pointer-events:none;
-  }
-  /* capa translúcida sobre la cresta para que se intuya la tarjeta al sumergirse */
-  .waves.front{z-index:16}
-  .waves.front svg{opacity:.92}
-  .waves.back{z-index:14;opacity:.7}
-  .wave-move{animation:waveSlide 14s linear infinite}
-  .wave-move-2{animation:waveSlide 20s linear infinite reverse}
-  @keyframes waveSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .litter{position:fixed;bottom:0;left:0;width:100%;z-index:15;line-height:0;pointer-events:none}
+  .litter svg{width:100%;height:140px;display:block}
+  /* detrás del plano medio: es una loma lejana, no debe cortar la cabaña */
+  .litter.back{z-index:-4;opacity:.9}
+  .litter.front{z-index:16}
 
-  /* fuegos artificiales */
-  .fireworks{
-    position:fixed;inset:0;width:100%;height:100%;
-    z-index:-1;pointer-events:none;
-  }
+  /* hojas cayendo */
+  .leaves{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 
-  /* partículas burbujas */
-  .bubbles{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-  .bubble{
-    position:absolute;bottom:-60px;border-radius:50%;
-    background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.8),rgba(31,182,193,.25));
-    animation:rise linear infinite;
+  /* telarañas de esquina */
+  .web{position:fixed;top:0;width:190px;z-index:18;pointer-events:none;opacity:.22}
+  .web.l{left:0}
+  .web.r{right:0;transform:scaleX(-1)}
+  .spider{
+    position:fixed;top:0;right:16vw;z-index:18;pointer-events:none;
+    animation:hang 9s ease-in-out infinite;
   }
-  @keyframes rise{
-    0%{transform:translateY(0) scale(.6);opacity:0}
-    10%{opacity:.7}
-    90%{opacity:.5}
-    100%{transform:translateY(-110vh) scale(1.1);opacity:0}
+  @keyframes hang{
+    0%,100%{transform:translateY(-160px)}
+    45%,65%{transform:translateY(14vh)}
   }
 
-  /* ---------- Layout ---------- */
-  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  /* viñeta para dar profundidad al bosque */
+  .vignette{
+    position:fixed;inset:0;z-index:17;pointer-events:none;
+    background:radial-gradient(120% 90% at 50% 40%, rgba(0,0,0,0) 45%, rgba(6,3,12,.55) 100%);
+  }
+
+  /* ============ LAYOUT ============ */
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px;position:relative;z-index:2}
 
   header.hero{
     text-align:center;
-    padding:88px 22px 40px;
-    position:relative;
+    padding:80px 22px 46px;
+    min-height:92vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    position:relative;z-index:2;
   }
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
-    background:rgba(255,255,255,.65);
+    background:rgba(26,14,40,.6);
     backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,.8);
-    color:var(--coral-dark);
-    font-weight:600;font-size:.82rem;letter-spacing:.04em;
+    border:1px solid rgba(255,177,61,.35);
+    color:var(--ambar);
+    font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
     padding:8px 16px;border-radius:50px;
-    box-shadow:var(--shadow);
-    opacity:0;animation:dropIn .7s .1s forwards;
+    box-shadow:0 0 26px -6px rgba(255,122,24,.5);
+    animation:dropIn .7s .1s backwards;
   }
+  /* el hero es flex column: sin esto los hijos se dimensionan a max-content
+     y el título / las stats desbordan en móvil en vez de envolver */
+  .hero h1,.hero p.sub,.stats{width:100%;max-width:100%}
   .hero h1{
-    font-family:'Fredoka',sans-serif;
-    font-weight:700;
-    font-size:clamp(2.6rem,7vw,5rem);
+    font-family:'Creepster',cursive;
+    font-weight:400;
+    font-size:clamp(2.5rem,6.2vw,4.6rem);
     line-height:1.02;
-    margin:22px 0 14px;
-    color:var(--noche);
-    letter-spacing:-.01em;
+    margin:20px 0 16px;
+    color:var(--crema);
+    letter-spacing:.02em;
+    text-shadow:0 0 28px rgba(255,140,50,.35),0 0 16px rgba(0,0,0,.6),0 6px 0 rgba(0,0,0,.35);
   }
   .hero h1 .pop{
-    color:var(--coral);
+    color:var(--calabaza);
     display:inline-block;
-    animation:wiggle 3.5s ease-in-out infinite;
+    text-shadow:0 0 18px rgba(255,122,24,.9),0 0 46px rgba(255,77,28,.6);
+    animation:wiggle 3.5s ease-in-out infinite, glowPulse 2.4s ease-in-out infinite;
   }
   @keyframes wiggle{
     0%,100%{transform:rotate(-2deg)}
     50%{transform:rotate(2deg)}
   }
+  @keyframes glowPulse{
+    0%,100%{filter:brightness(1)}
+    50%{filter:brightness(1.22)}
+  }
   .hero p.sub{
-    font-size:clamp(1rem,2.2vw,1.22rem);
-    color:var(--noche-soft);
+    font-size:clamp(1rem,2.2vw,1.2rem);
+    color:var(--morado-soft);
     max-width:560px;margin:0 auto;
-    opacity:0;animation:dropIn .7s .35s forwards;
+    text-shadow:0 2px 12px rgba(0,0,0,.6);
+    animation:dropIn .7s .35s backwards;
   }
   @keyframes dropIn{
     from{opacity:0;transform:translateY(-14px)}
@@ -147,17 +255,38 @@
   .stats{
     display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
     margin-top:30px;
-    opacity:0;animation:dropIn .7s .5s forwards;
+    animation:dropIn .7s .5s backwards;
   }
   .stat{
-    background:#fff;border-radius:18px;padding:14px 22px;
+    background:linear-gradient(160deg,rgba(42,27,74,.82),rgba(16,9,28,.88));
+    border-radius:18px;padding:14px 22px;
     box-shadow:var(--shadow);min-width:120px;
-    border:1px solid rgba(255,255,255,.9);
+    border:1px solid rgba(255,177,61,.22);
+    backdrop-filter:blur(5px);
   }
-  .stat b{font-family:'Fredoka';font-size:1.6rem;color:var(--mar-dark);display:block;line-height:1}
-  .stat span{font-size:.78rem;color:var(--noche-soft);font-weight:500}
+  .stat b{font-family:'Creepster',cursive;font-size:1.7rem;color:var(--ambar);display:block;line-height:1.1;letter-spacing:.03em}
+  .stat span{font-size:.76rem;color:var(--crema-soft);font-weight:500;letter-spacing:.04em}
 
-  /* ---------- Filtros ---------- */
+  /* indicador para bajar a la lista */
+  /* a la derecha: el centro-izquierda lo ocupa la cabaña */
+  .scroll-hint{
+    position:absolute;bottom:14px;right:7%;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    color:var(--ambar);text-decoration:none;
+    font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    text-shadow:0 2px 10px rgba(0,0,0,.9);
+    opacity:.8;transition:opacity .3s,color .3s;
+    animation:dropIn .7s .7s backwards;
+  }
+  .scroll-hint:hover{opacity:1;color:var(--calabaza)}
+  .scroll-hint svg{animation:bob 2s ease-in-out infinite}
+  @keyframes bob{
+    0%,100%{transform:translateY(0);opacity:.7}
+    50%{transform:translateY(6px);opacity:1}
+  }
+  .anchor{display:block;position:relative;top:-90px;height:0}
+
+  /* ============ FILTROS ============ */
   .controls{
     display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
     margin:46px 0 8px;
@@ -165,65 +294,116 @@
     padding:14px 0;
   }
   .controls::before{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,var(--arena) 60%,rgba(255,246,233,0));
+    /* franja a sangre, difuminada por arriba y por abajo (sin cantos duros).
+       El margen superior de 44px queda fuera de pantalla al quedar fija arriba,
+       así que sigue tapando por completo lo que pasa por detrás. */
+    content:"";position:absolute;top:-44px;bottom:-30px;
+    left:50%;width:100vw;transform:translateX(-50%);
+    background:rgba(11,7,19,.90);
+    backdrop-filter:blur(7px);
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 30%,#000 72%,rgba(0,0,0,0) 100%);
+    mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 30%,#000 72%,rgba(0,0,0,0) 100%);
     z-index:-1;
   }
   .chip{
     font-family:'DM Sans';font-weight:600;font-size:.9rem;
-    border:2px solid var(--noche);
-    background:#fff;color:var(--noche);
+    border:2px solid rgba(255,177,61,.4);
+    background:rgba(21,13,36,.9);color:var(--crema);
     padding:9px 18px;border-radius:50px;cursor:pointer;
-    transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .25s,color .25s,box-shadow .25s;
+    transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .25s,color .25s,box-shadow .25s,border-color .25s;
   }
-  .chip:hover{transform:translateY(-3px) scale(1.04)}
-  .chip.active{background:var(--coral);border-color:var(--coral);color:#fff;box-shadow:var(--shadow)}
-  .chip:focus-visible{outline:3px solid var(--mar);outline-offset:2px}
+  .chip:hover{transform:translateY(-3px) scale(1.04);border-color:var(--calabaza)}
+  .chip.active{
+    background:linear-gradient(180deg,var(--calabaza),var(--calabaza-dark));
+    border-color:var(--ambar);color:#20100A;
+    box-shadow:0 0 26px -4px rgba(255,122,24,.8);
+  }
+  .chip:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
 
-  /* ---------- Grid de tarjetas ---------- */
+  /* ============ TARJETAS ============ */
   .grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
     gap:26px;
-    padding:30px 0 160px;
+    padding:30px 0 200px;
     position:relative;z-index:1;
   }
   .card{
-    background:#fff;border-radius:var(--r);overflow:hidden;
-    box-shadow:var(--shadow);position:relative;
+    /* cartel de madera: vetas finas + juntas entre tablas */
+    background:
+      repeating-linear-gradient(92deg,
+        rgba(0,0,0,.15) 0 1px,rgba(255,226,178,.035) 1px 3px,rgba(0,0,0,0) 3px 13px),
+      repeating-linear-gradient(180deg,
+        rgba(0,0,0,.45) 0 3px,rgba(255,214,160,.07) 3px 5px,rgba(0,0,0,0) 5px 58px),
+      linear-gradient(168deg,#5C3A22 0%,#452A18 46%,#33200F 100%);
+    border-radius:14px;overflow:hidden;
+    position:relative;
     display:flex;flex-direction:column;
-    border:1px solid rgba(255,255,255,.9);
+    padding:13px 13px 15px;
+    border:2px solid #24140A;
+    box-shadow:
+      inset 0 1px 0 rgba(255,220,170,.16),
+      inset 0 -5px 12px rgba(0,0,0,.45),
+      var(--shadow);
     transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;
     opacity:0;transform:translateY(60px) scale(.96);
   }
+  /* los cuatro clavos del cartel */
+  .card::before,.card::after,
+  .card .body::before,.card .body::after{
+    content:"";position:absolute;width:9px;height:9px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%,#E8D3A8,#8A7048 48%,#2E2210 100%);
+    box-shadow:0 1px 2px rgba(0,0,0,.8),inset 0 -1px 1px rgba(0,0,0,.5);
+    z-index:3;pointer-events:none;
+  }
+  .card::before{top:7px;left:7px}
+  .card::after{top:7px;right:7px}
+  .card .body::before{bottom:7px;left:7px}
+  .card .body::after{bottom:7px;right:7px}
   .card.in{opacity:1;transform:translateY(0) scale(1);
     transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
-  .card:hover{transform:translateY(-10px) rotate(-.4deg);box-shadow:var(--shadow-hover)}
+  .card:hover{
+    transform:translateY(-10px) rotate(-.5deg);
+    box-shadow:
+      inset 0 1px 0 rgba(255,220,170,.22),
+      inset 0 -5px 12px rgba(0,0,0,.4),
+      var(--shadow-hover);
+  }
 
-  .card .ph{position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--arena-2)}
+  .card .ph{
+    position:relative;aspect-ratio:16/11;overflow:hidden;
+    border-radius:8px;background:#1B1128;
+    border:2px solid #1E1008;
+    box-shadow:0 5px 14px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,214,160,.10);
+  }
   .card .ph img{
     width:100%;height:100%;object-fit:cover;display:block;
-    transition:transform .7s cubic-bezier(.22,1,.36,1);
+    filter:saturate(.85) brightness(.78) contrast(1.05) sepia(.12);
+    transition:transform .7s cubic-bezier(.22,1,.36,1),filter .5s;
   }
-  .card:hover .ph img{transform:scale(1.09)}
+  .card:hover .ph img{transform:scale(1.09);filter:saturate(1) brightness(1) contrast(1) sepia(0)}
   .card .ph::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(26,58,82,.28));
+    background:
+      linear-gradient(180deg,rgba(12,7,20,.35) 0%,rgba(12,7,20,0) 35%,rgba(12,7,20,.85) 100%),
+      radial-gradient(90% 70% at 50% 0%, rgba(255,122,24,.20), rgba(0,0,0,0) 70%);
+    transition:opacity .5s;
   }
+  .card:hover .ph::after{opacity:.55}
 
   .badges{position:absolute;top:12px;left:12px;display:flex;gap:7px;flex-wrap:wrap;z-index:2}
   .badge{
     font-size:.72rem;font-weight:700;letter-spacing:.02em;
-    padding:5px 11px;border-radius:50px;color:#fff;
+    padding:5px 11px;border-radius:50px;color:var(--crema);
     backdrop-filter:blur(3px);
-    box-shadow:0 4px 12px -4px rgba(0,0,0,.4);
+    box-shadow:0 4px 12px -4px rgba(0,0,0,.7);
   }
-  .badge.cat{background:rgba(26,58,82,.78)}
+  .badge.cat{background:rgba(42,27,74,.85);border:1px solid rgba(255,177,61,.3)}
   .prio{
     position:absolute;top:12px;right:12px;z-index:2;
     font-size:.72rem;font-weight:700;
     padding:5px 11px 5px 24px;border-radius:50px;color:#fff;
-    box-shadow:0 4px 12px -4px rgba(0,0,0,.4);
+    box-shadow:0 4px 14px -4px rgba(0,0,0,.7);
   }
   .prio::before{
     content:"";position:absolute;left:9px;top:50%;width:8px;height:8px;
@@ -231,31 +411,45 @@
     animation:blink 1.6s ease-in-out infinite;
   }
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
-  .prio.alta{background:var(--coral)}
-  .prio.media{background:var(--mar)}
-  .prio.baja{background:var(--noche-soft)}
+  .prio.alta{background:linear-gradient(180deg,var(--calabaza),var(--calabaza-dark));color:#1E0E06}
+  .prio.media{background:linear-gradient(180deg,#6FA046,#41682A)}
+  .prio.baja{background:linear-gradient(180deg,#6A4E9C,#3B2A63)}
 
-  .card .body{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1}
-  .card h3{font-family:'Fredoka';font-weight:600;font-size:1.22rem;line-height:1.18;margin-bottom:8px}
-  .card .desc{font-size:.9rem;color:var(--noche-soft);line-height:1.5;flex:1}
+  .card .body{padding:15px 6px 8px;display:flex;flex-direction:column;flex:1}
+  .card h3{
+    font-family:'Fredoka';font-weight:600;font-size:1.2rem;line-height:1.2;
+    margin-bottom:8px;color:var(--crema);text-shadow:0 1px 0 rgba(0,0,0,.6);
+  }
+  .card .desc{font-size:.9rem;color:var(--crema-soft);line-height:1.5;flex:1}
 
   .price{
-    font-family:'Fredoka';font-weight:600;font-size:1.5rem;color:var(--mar-dark);
-    margin:16px 0 14px;display:flex;align-items:baseline;gap:5px;
+    font-family:'Creepster',cursive;font-weight:400;font-size:1.6rem;color:var(--ambar);
+    letter-spacing:.03em;
+    margin:16px 0 14px;display:flex;align-items:baseline;gap:7px;
+    text-shadow:0 0 18px rgba(255,177,61,.35);
   }
-  .price small{font-size:.78rem;font-weight:500;color:var(--noche-soft)}
+  .price small{font-family:'DM Sans';font-size:.74rem;font-weight:500;color:var(--crema-soft);letter-spacing:0}
+  .price.tbd{color:var(--morado-soft);text-shadow:none;font-size:1.25rem}
 
   .links{display:flex;gap:9px;flex-wrap:wrap}
   .links a{
     flex:1 1 auto;text-align:center;text-decoration:none;
     font-weight:600;font-size:.86rem;
-    padding:11px 14px;border-radius:14px;
-    background:var(--noche);color:#fff;
-    transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .25s;
+    padding:10px 14px;border-radius:9px;
+    background:linear-gradient(180deg,#2E1B0E,#1B0F07);
+    border:1px solid rgba(255,177,61,.30);
+    box-shadow:inset 0 1px 0 rgba(255,214,160,.13),0 2px 6px rgba(0,0,0,.5);
+    color:var(--crema);
+    transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .25s,box-shadow .25s,color .25s;
     position:relative;overflow:hidden;
   }
-  .links a:hover{transform:translateY(-3px);background:var(--coral)}
-  .links a:focus-visible{outline:3px solid var(--mar);outline-offset:2px}
+  .links a:hover{
+    transform:translateY(-3px);
+    background:linear-gradient(180deg,var(--calabaza),var(--calabaza-dark));
+    color:#20100A;
+    box-shadow:0 0 22px -4px rgba(255,122,24,.85);
+  }
+  .links a:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
   .links a::after{
     content:"↗";margin-left:6px;display:inline-block;
     transition:transform .25s;
@@ -265,21 +459,36 @@
   /* estado vacío / carga */
   .msg{
     grid-column:1/-1;text-align:center;padding:60px 20px;
-    color:var(--noche-soft);font-size:1.05rem;
+    color:var(--crema-soft);font-size:1.05rem;
   }
+  .msg b{color:var(--ambar)}
   .loader{
     width:46px;height:46px;border-radius:50%;margin:0 auto 18px;
-    border:5px solid var(--arena-2);border-top-color:var(--coral);
+    border:5px solid rgba(255,177,61,.18);border-top-color:var(--calabaza);
     animation:spin .8s linear infinite;
   }
   @keyframes spin{to{transform:rotate(360deg)}}
 
   footer{
-    text-align:center;padding:30px 22px 50px;
-    color:var(--noche-soft);font-size:.86rem;
+    text-align:center;padding:30px 22px 60px;
+    color:var(--crema-soft);font-size:.86rem;
     position:relative;z-index:20;
+    text-shadow:0 2px 10px rgba(0,0,0,.8);
   }
-  footer b{color:var(--coral-dark)}
+  footer b{color:var(--calabaza)}
+
+  @media (max-width:1120px){
+    .web{display:none}
+    .spider{display:none}
+  }
+
+  @media (max-width:680px){
+    header.hero{padding:64px 18px 40px}
+    .scroll-hint{right:50%;transform:translateX(50%)}
+    .scroll-hint span{display:none}
+    .card{padding:11px 11px 13px}
+    .card .body{padding:13px 4px 6px}
+  }
 
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -289,66 +498,395 @@
 </head>
 <body>
 
-<div class="sky"></div>
-<div class="sun"></div>
-<canvas class="fireworks" id="fw" aria-hidden="true"></canvas>
-<div class="bubbles" id="bubbles"></div>
-<div class="water-body" aria-hidden="true"></div>
-<div class="waves back" aria-hidden="true" style="bottom:37px">
-  <svg viewBox="0 0 1440 140" preserveAspectRatio="none" class="wave-move-2">
-    <path fill="#1FB6C1" d="M0,80 C240,140 480,20 720,70 C960,120 1200,30 1440,80 L1440,140 L0,140 Z M1440,80 C1680,140 1920,20 2160,70 C2400,120 2640,30 2880,80 L2880,140 L1440,140 Z"/>
-  </svg>
+<!-- ===================== ESCENA: BOSQUE DE OTOÑO ===================== -->
+
+<!-- formas compartidas por todas las capas del bosque -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="pine" viewBox="0 0 100 200">
+      <path d="M50 0 L68 46 L58 46 L78 92 L66 92 L90 145 L56 145 L56 200 L44 200 L44 145 L10 145 L34 92 L22 92 L42 46 L32 46 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="sky" aria-hidden="true"></div>
+<div class="stars" id="stars" aria-hidden="true"></div>
+<div class="moon" id="moon" aria-hidden="true"></div>
+
+<div class="clouds" aria-hidden="true">
+  <div class="cloud" style="top:12vh;animation-duration:70s;animation-delay:-20s"></div>
+  <div class="cloud" style="top:22vh;animation-duration:95s;animation-delay:-55s;opacity:.7;transform:scale(1.4)"></div>
+  <div class="cloud" style="top:5vh;animation-duration:120s;animation-delay:-90s;opacity:.55"></div>
 </div>
-<div class="waves front" aria-hidden="true" style="bottom:33px">
-  <svg viewBox="0 0 1440 140" preserveAspectRatio="none" class="wave-move">
-    <path fill="#138C95" d="M0,95 C220,55 460,135 720,90 C980,45 1180,125 1440,90 L1440,140 L0,140 Z M1440,95 C1660,55 1900,135 2160,90 C2420,45 2620,125 2880,90 L2880,140 L1440,140 Z"/>
+
+<div class="bats" aria-hidden="true">
+  <div class="bat" style="top:14vh;animation-duration:26s;animation-delay:-4s">
+    <svg width="46" height="19" viewBox="0 0 100 40"><path d="M50 26 L44 18 C38 8 26 4 14 8 C22 10 26 16 26 22 C20 16 10 16 4 20 C14 20 20 26 22 32 C30 26 40 26 46 30 L50 34 L54 30 C60 26 70 26 78 32 C80 26 86 20 96 20 C90 16 80 16 74 22 C74 16 78 10 86 8 C74 4 62 8 56 18 Z"/></svg>
+  </div>
+  <div class="bat" style="top:9vh;animation-duration:34s;animation-delay:-16s">
+    <svg width="30" height="12" viewBox="0 0 100 40"><path d="M50 26 L44 18 C38 8 26 4 14 8 C22 10 26 16 26 22 C20 16 10 16 4 20 C14 20 20 26 22 32 C30 26 40 26 46 30 L50 34 L54 30 C60 26 70 26 78 32 C80 26 86 20 96 20 C90 16 80 16 74 22 C74 16 78 10 86 8 C74 4 62 8 56 18 Z"/></svg>
+  </div>
+  <div class="bat" style="top:20vh;animation-duration:44s;animation-delay:-30s">
+    <svg width="22" height="9" viewBox="0 0 100 40"><path d="M50 26 L44 18 C38 8 26 4 14 8 C22 10 26 16 26 22 C20 16 10 16 4 20 C14 20 20 26 22 32 C30 26 40 26 46 30 L50 34 L54 30 C60 26 70 26 78 32 C80 26 86 20 96 20 C90 16 80 16 74 22 C74 16 78 10 86 8 C74 4 62 8 56 18 Z"/></svg>
+  </div>
+</div>
+
+<!-- Bosque lejano -->
+<div class="layer far" id="lFar" aria-hidden="true">
+  <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax meet">
+    <g fill="#2A1B4A">
+      <use href="#pine" x="-20" y="120" width="90" height="180"/>
+      <use href="#pine" x="60" y="150" width="70" height="150"/>
+      <use href="#pine" x="130" y="110" width="100" height="190"/>
+      <use href="#pine" x="225" y="155" width="72" height="145"/>
+      <use href="#pine" x="290" y="125" width="94" height="175"/>
+      <use href="#pine" x="380" y="160" width="66" height="140"/>
+      <use href="#pine" x="440" y="118" width="102" height="182"/>
+      <use href="#pine" x="540" y="152" width="76" height="148"/>
+      <use href="#pine" x="612" y="128" width="92" height="172"/>
+      <use href="#pine" x="700" y="158" width="70" height="142"/>
+      <use href="#pine" x="766" y="116" width="104" height="184"/>
+      <use href="#pine" x="866" y="150" width="78" height="150"/>
+      <use href="#pine" x="940" y="126" width="96" height="174"/>
+      <use href="#pine" x="1032" y="160" width="68" height="140"/>
+      <use href="#pine" x="1096" y="120" width="100" height="180"/>
+      <use href="#pine" x="1192" y="154" width="74" height="146"/>
+      <use href="#pine" x="1262" y="124" width="98" height="176"/>
+      <use href="#pine" x="1356" y="150" width="92" height="150"/>
+    </g>
   </svg>
 </div>
 
+<!-- Bosque medio + cabaña -->
+<div class="layer mid" id="lMid" aria-hidden="true">
+  <svg viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax meet">
+    <defs>
+      <filter id="glowBig" x="-120%" y="-120%" width="340%" height="340%">
+        <feGaussianBlur stdDeviation="14"/>
+      </filter>
+      <filter id="glowSm" x="-150%" y="-150%" width="400%" height="400%">
+        <feGaussianBlur stdDeviation="2.6"/>
+      </filter>
+      <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FFB13D" stop-opacity=".30"/>
+        <stop offset="100%" stop-color="#FF7A18" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- árboles medios detrás de la cabaña (con claro en el centro-izquierda) -->
+    <g fill="#180F2C">
+      <use href="#pine" x="-40" y="150" width="120" height="250"/>
+      <use href="#pine" x="60" y="190" width="100" height="210"/>
+      <use href="#pine" x="150" y="155" width="118" height="245"/>
+      <use href="#pine" x="252" y="196" width="94" height="204"/>
+      <use href="#pine" x="316" y="164" width="110" height="236"/>
+      <use href="#pine" x="700" y="168" width="116" height="232"/>
+      <use href="#pine" x="796" y="202" width="94" height="198"/>
+      <use href="#pine" x="874" y="158" width="124" height="242"/>
+      <use href="#pine" x="982" y="200" width="96" height="200"/>
+      <use href="#pine" x="1062" y="152" width="126" height="248"/>
+      <use href="#pine" x="1172" y="198" width="98" height="202"/>
+      <use href="#pine" x="1256" y="156" width="124" height="244"/>
+      <use href="#pine" x="1364" y="192" width="106" height="208"/>
+    </g>
+
+    <!-- suelo del claro: la cabaña y el espantapájaros se apoyan aquí -->
+    <path fill="#170D22" d="M0,374 C120,364 220,354 330,348 C400,344 460,344 560,344 C660,344 720,348 820,354 C940,362 1060,356 1180,362 C1300,368 1380,374 1440,370 L1440,400 L0,400 Z"/>
+    <path fill="none" stroke="#FF7A18" stroke-opacity=".10" stroke-width="3" d="M330,348 C400,344 460,344 560,344 C660,344 720,348 820,354"/>
+
+    <!-- ===== CABAÑA ===== -->
+    <g transform="translate(408,124)">
+      <!-- resplandor cálido general -->
+      <ellipse cx="140" cy="180" rx="190" ry="78" fill="#FF7A18" opacity=".22" filter="url(#glowBig)"/>
+
+      <!-- humo de la chimenea -->
+      <g fill="#C9BBD6">
+        <circle class="smoke" cx="213" cy="34" r="8" style="animation-delay:0s"/>
+        <circle class="smoke" cx="213" cy="34" r="7" style="animation-delay:1.6s"/>
+        <circle class="smoke" cx="213" cy="34" r="9" style="animation-delay:3.2s"/>
+        <circle class="smoke" cx="213" cy="34" r="6" style="animation-delay:4.8s"/>
+      </g>
+
+      <!-- chimenea -->
+      <rect x="198" y="36" width="30" height="62" fill="#2A1A12"/>
+      <rect x="193" y="30" width="40" height="12" rx="3" fill="#3A2418"/>
+      <g stroke="#150C08" stroke-width="1.4" opacity=".7">
+        <line x1="198" y1="50" x2="228" y2="50"/><line x1="198" y1="62" x2="228" y2="62"/>
+        <line x1="198" y1="74" x2="228" y2="74"/><line x1="198" y1="86" x2="228" y2="86"/>
+        <line x1="213" y1="42" x2="213" y2="98"/>
+      </g>
+
+      <!-- cuerpo de troncos -->
+      <rect x="40" y="92" width="200" height="112" fill="#3A2418"/>
+      <g stroke="#25150E" stroke-width="2">
+        <line x1="40" y1="106" x2="240" y2="106"/><line x1="40" y1="121" x2="240" y2="121"/>
+        <line x1="40" y1="136" x2="240" y2="136"/><line x1="40" y1="151" x2="240" y2="151"/>
+        <line x1="40" y1="166" x2="240" y2="166"/><line x1="40" y1="181" x2="240" y2="181"/>
+        <line x1="40" y1="196" x2="240" y2="196"/>
+      </g>
+      <!-- troncos de esquina -->
+      <rect x="34" y="92" width="13" height="112" fill="#4A2E1C"/>
+      <rect x="233" y="92" width="13" height="112" fill="#2E1C11"/>
+
+      <!-- tejado -->
+      <polygon points="8,104 140,12 272,104" fill="#241016"/>
+      <polygon points="8,104 140,12 272,104 262,104 140,22 18,104" fill="#150910"/>
+      <g stroke="#170A11" stroke-width="1.6" opacity=".8">
+        <polyline points="30,90 140,32 250,90" fill="none"/>
+        <polyline points="52,74 140,52 228,74" fill="none"/>
+        <polyline points="74,59 140,72 206,59" fill="none"/>
+      </g>
+
+      <!-- guirnalda de luces en el alero -->
+      <g filter="url(#glowSm)">
+        <circle class="bulb" cx="21" cy="95" r="3.4" fill="#FFB13D" style="animation-delay:0s"/>
+        <circle class="bulb" cx="37" cy="84" r="3.4" fill="#FF7A18" style="animation-delay:.25s"/>
+        <circle class="bulb" cx="53" cy="73" r="3.4" fill="#C77DFF" style="animation-delay:.5s"/>
+        <circle class="bulb" cx="69" cy="62" r="3.4" fill="#FFB13D" style="animation-delay:.75s"/>
+        <circle class="bulb" cx="85" cy="51" r="3.4" fill="#FF7A18" style="animation-delay:1s"/>
+        <circle class="bulb" cx="100" cy="40" r="3.4" fill="#C77DFF" style="animation-delay:1.25s"/>
+        <circle class="bulb" cx="116" cy="29" r="3.4" fill="#FFB13D" style="animation-delay:1.5s"/>
+        <circle class="bulb" cx="132" cy="18" r="3.4" fill="#FF7A18" style="animation-delay:1.75s"/>
+        <circle class="bulb" cx="148" cy="18" r="3.4" fill="#C77DFF" style="animation-delay:1.9s"/>
+        <circle class="bulb" cx="164" cy="29" r="3.4" fill="#FFB13D" style="animation-delay:1.6s"/>
+        <circle class="bulb" cx="180" cy="40" r="3.4" fill="#FF7A18" style="animation-delay:1.35s"/>
+        <circle class="bulb" cx="195" cy="51" r="3.4" fill="#C77DFF" style="animation-delay:1.1s"/>
+        <circle class="bulb" cx="211" cy="62" r="3.4" fill="#FFB13D" style="animation-delay:.85s"/>
+        <circle class="bulb" cx="227" cy="73" r="3.4" fill="#FF7A18" style="animation-delay:.6s"/>
+        <circle class="bulb" cx="243" cy="84" r="3.4" fill="#C77DFF" style="animation-delay:.35s"/>
+        <circle class="bulb" cx="259" cy="95" r="3.4" fill="#FFB13D" style="animation-delay:.1s"/>
+      </g>
+
+      <!-- ventana izquierda -->
+      <rect x="60" y="116" width="46" height="38" rx="3" fill="#120A08"/>
+      <rect x="63" y="119" width="40" height="32" class="flicker" fill="#FFA63C"/>
+      <rect x="63" y="119" width="40" height="32" class="flicker" fill="#FFD98A" opacity=".55"/>
+      <g stroke="#2A1A12" stroke-width="3">
+        <line x1="83" y1="117" x2="83" y2="153"/>
+        <line x1="61" y1="135" x2="105" y2="135"/>
+      </g>
+      <polygon points="63,152 103,152 128,204 38,204" fill="url(#beam)" class="flicker"/>
+
+      <!-- ventana derecha -->
+      <rect x="174" y="116" width="46" height="38" rx="3" fill="#120A08"/>
+      <rect x="177" y="119" width="40" height="32" class="flicker-2" fill="#FFA63C"/>
+      <rect x="177" y="119" width="40" height="32" class="flicker-2" fill="#FFD98A" opacity=".5"/>
+      <g stroke="#2A1A12" stroke-width="3">
+        <line x1="197" y1="117" x2="197" y2="153"/>
+        <line x1="175" y1="135" x2="219" y2="135"/>
+      </g>
+      <polygon points="177,152 217,152 242,204 152,204" fill="url(#beam)" class="flicker-2"/>
+
+      <!-- puerta -->
+      <rect x="120" y="142" width="42" height="62" rx="4" fill="#241209"/>
+      <rect x="124" y="146" width="34" height="58" fill="#1A0D07"/>
+      <circle cx="152" cy="176" r="2.6" fill="#FFB13D"/>
+      <rect x="124" y="200" width="34" height="4" class="flicker" fill="#FFB13D" opacity=".9"/>
+      <!-- corona de otoño en la puerta -->
+      <circle cx="141" cy="158" r="9" fill="none" stroke="#7A4A1C" stroke-width="3.4"/>
+      <circle cx="134" cy="152" r="2" fill="#C0392B"/>
+      <circle cx="148" cy="153" r="2" fill="#E8A33D"/>
+      <circle cx="150" cy="164" r="2" fill="#8E4A1F"/>
+      <circle cx="133" cy="165" r="2" fill="#B9541E"/>
+
+      <!-- farol colgado -->
+      <line x1="112" y1="140" x2="112" y2="150" stroke="#2A1A12" stroke-width="2"/>
+      <rect x="107" y="150" width="11" height="14" rx="2" fill="#2A1A12"/>
+      <rect x="109" y="152" width="7" height="10" class="flicker-2" fill="#FFD98A"/>
+      <circle cx="112" cy="157" r="12" fill="#FFB13D" opacity=".28" filter="url(#glowSm)"/>
+
+      <!-- porche -->
+      <rect x="26" y="204" width="228" height="9" fill="#2A1A12"/>
+      <rect x="26" y="213" width="228" height="5" fill="#190F0A"/>
+
+      <!-- calabazas del porche -->
+      <g transform="translate(84,192) scale(.95)">
+        <ellipse cx="0" cy="0" rx="17" ry="13" fill="#A8480E"/>
+        <ellipse cx="-6" cy="0" rx="10" ry="13" fill="#D45E10"/>
+        <ellipse cx="6" cy="0" rx="10" ry="13" fill="#D45E10"/>
+        <ellipse cx="0" cy="0" rx="7.5" ry="13" fill="#FF7A18"/>
+        <path d="M0,-13 q3,-6 8,-8" stroke="#4C7A2B" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+        <g class="flicker" fill="#FFE08A" filter="url(#glowSm)">
+          <path d="M-8,-5 l5,6 -9,0 z"/><path d="M8,-5 l-5,6 9,0 z"/>
+          <path d="M-8,4 h16 l-2.5,4.5 -3,-2.5 -2.5,2.5 -2.5,-2.5 -3,2.5 z"/>
+        </g>
+      </g>
+      <g transform="translate(196,195) scale(.75)">
+        <ellipse cx="0" cy="0" rx="17" ry="13" fill="#A8480E"/>
+        <ellipse cx="-6" cy="0" rx="10" ry="13" fill="#D45E10"/>
+        <ellipse cx="6" cy="0" rx="10" ry="13" fill="#D45E10"/>
+        <ellipse cx="0" cy="0" rx="7.5" ry="13" fill="#FF7A18"/>
+        <path d="M0,-13 q3,-6 8,-8" stroke="#4C7A2B" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+        <g class="flicker-2" fill="#FFE08A" filter="url(#glowSm)">
+          <path d="M-8,-5 l5,6 -9,0 z"/><path d="M8,-5 l-5,6 9,0 z"/>
+          <path d="M-9,4 h18 l-3,5 -3,-3 -3,3 -3,-3 -3,3 z"/>
+        </g>
+      </g>
+      <g transform="translate(228,199) scale(.55)">
+        <ellipse cx="0" cy="0" rx="17" ry="13" fill="#A8480E"/>
+        <ellipse cx="0" cy="0" rx="8" ry="13" fill="#FF7A18"/>
+        <path d="M0,-13 q3,-6 8,-8" stroke="#4C7A2B" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <g class="flicker" fill="#FFE08A" filter="url(#glowSm)" style="animation-delay:.9s">
+          <path d="M-8,-5 l5,6 -9,0 z"/><path d="M8,-5 l-5,6 9,0 z"/>
+          <path d="M-7,5 h14 l-3,4 -4,-2 -4,2 z"/>
+        </g>
+      </g>
+
+      <!-- balas de paja y espantapájaros pequeño a un lado -->
+      <g transform="translate(-92,186)">
+        <rect x="0" y="8" width="44" height="26" rx="6" fill="#7A5B24"/>
+        <g stroke="#5E4419" stroke-width="1.6">
+          <line x1="4" y1="16" x2="40" y2="16"/><line x1="4" y1="24" x2="40" y2="24"/>
+        </g>
+        <rect x="12" y="4" width="6" height="30" fill="#5E4419" opacity=".7"/>
+        <g transform="translate(56,-2)">
+          <line x1="0" y1="0" x2="0" y2="36" stroke="#2A1A12" stroke-width="4"/>
+          <line x1="-14" y1="12" x2="14" y2="12" stroke="#2A1A12" stroke-width="3"/>
+          <circle cx="0" cy="-6" r="8" fill="#8A6A2C"/>
+          <path d="M-11,-8 h22 l-3,-4 h-16 z" fill="#4A2E1C"/>
+          <circle cx="-3" cy="-7" r="1.4" fill="#FFB13D"/>
+          <circle cx="3" cy="-7" r="1.4" fill="#FFB13D"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- árboles medios delante, enmarcando el claro -->
+    <g fill="#140B22">
+      <use href="#pine" x="226" y="222" width="82" height="178"/>
+      <use href="#pine" x="676" y="216" width="88" height="184"/>
+    </g>
+  </svg>
+</div>
+
+<!-- niebla del fondo -->
+<div class="fog a" aria-hidden="true"></div>
+
+<!-- hojas cayendo -->
+<canvas class="leaves" id="lv" aria-hidden="true"></canvas>
+
+<!-- Hojarasca trasera: las tarjetas se hunden aquí -->
+<div class="litter back" aria-hidden="true" style="bottom:40px">
+  <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+    <path fill="#160D24" d="M0,74 C120,44 210,88 330,66 C450,44 530,90 650,72 C770,54 850,94 970,74 C1090,54 1180,92 1300,72 C1360,62 1400,68 1440,60 L1440,140 L0,140 Z"/>
+  </svg>
+</div>
+
+<!-- Bosque cercano (troncos oscuros que enmarcan) -->
+<div class="layer near" aria-hidden="true">
+  <svg viewBox="0 0 1440 260" preserveAspectRatio="none">
+    <g fill="#0A0610">
+      <use href="#pine" x="-60" y="30" width="180" height="230"/>
+      <use href="#pine" x="70" y="95" width="140" height="165"/>
+      <use href="#pine" x="1230" y="90" width="146" height="170"/>
+      <use href="#pine" x="1330" y="25" width="180" height="235"/>
+    </g>
+    <!-- lápidas -->
+    <g fill="#1E1830">
+      <path d="M250,260 L250,214 a20,20 0 0 1 40,0 L290,260 Z"/>
+      <g stroke="#0A0610" stroke-width="3" opacity=".8">
+        <line x1="262" y1="230" x2="278" y2="230"/>
+        <line x1="270" y1="226" x2="270" y2="244"/>
+      </g>
+      <path d="M1130,260 L1130,226 a15,15 0 0 1 30,0 L1160,260 Z"/>
+    </g>
+  </svg>
+</div>
+
+<div class="ground-body" aria-hidden="true"></div>
+
+<!-- Hojarasca frontal -->
+<div class="litter front" aria-hidden="true" style="bottom:34px">
+  <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+    <path fill="#0A0610" d="M0,92 C160,58 240,104 380,84 C520,64 600,110 740,92 C880,74 960,112 1100,90 C1240,68 1330,104 1440,86 L1440,140 L0,140 Z"/>
+    <g opacity=".85">
+      <ellipse cx="120" cy="88" rx="11" ry="6" fill="#7A3B12" transform="rotate(-18 120 88)"/>
+      <ellipse cx="300" cy="94" rx="10" ry="5.5" fill="#A8480E" transform="rotate(22 300 94)"/>
+      <ellipse cx="520" cy="86" rx="12" ry="6" fill="#8E5A15" transform="rotate(-8 520 86)"/>
+      <ellipse cx="700" cy="98" rx="9" ry="5" fill="#6E2F10" transform="rotate(30 700 98)"/>
+      <ellipse cx="900" cy="90" rx="11" ry="6" fill="#A8480E" transform="rotate(-25 900 90)"/>
+      <ellipse cx="1080" cy="96" rx="10" ry="5.5" fill="#7A3B12" transform="rotate(14 1080 96)"/>
+      <ellipse cx="1290" cy="88" rx="12" ry="6" fill="#8E5A15" transform="rotate(-30 1290 88)"/>
+    </g>
+    <!-- hierbas secas -->
+    <g stroke="#1B1226" stroke-width="2.4" fill="none" stroke-linecap="round">
+      <path d="M60,104 q4,-22 -4,-34"/><path d="M68,104 q2,-18 6,-28"/>
+      <path d="M430,102 q5,-20 -3,-32"/><path d="M438,102 q1,-16 7,-26"/>
+      <path d="M820,106 q-4,-20 4,-30"/><path d="M828,106 q2,-18 -4,-26"/>
+      <path d="M1200,102 q5,-22 -3,-32"/><path d="M1208,102 q1,-16 7,-26"/>
+    </g>
+  </svg>
+</div>
+
+<!-- niebla delantera -->
+<div class="fog b" aria-hidden="true"></div>
+
+<!-- telarañas -->
+<svg class="web l" viewBox="0 0 200 200" aria-hidden="true" fill="none" stroke="#EADFD0" stroke-width="1.6">
+  <path d="M0,0 L200,60 M0,0 L150,150 M0,0 L60,200 M0,0 L190,20 M0,0 L20,190"/>
+  <path d="M28,6 Q22,22 6,28 M56,12 Q44,44 12,56 M84,18 Q66,66 18,84 M112,24 Q88,88 24,112 M140,30 Q110,110 30,140"/>
+</svg>
+<svg class="web r" viewBox="0 0 200 200" aria-hidden="true" fill="none" stroke="#EADFD0" stroke-width="1.6">
+  <path d="M0,0 L200,60 M0,0 L150,150 M0,0 L60,200 M0,0 L190,20 M0,0 L20,190"/>
+  <path d="M28,6 Q22,22 6,28 M56,12 Q44,44 12,56 M84,18 Q66,66 18,84 M112,24 Q88,88 24,112 M140,30 Q110,110 30,140"/>
+</svg>
+<svg class="spider" width="34" height="190" viewBox="0 0 34 190" aria-hidden="true">
+  <line x1="17" y1="0" x2="17" y2="150" stroke="#EADFD0" stroke-width="1" opacity=".45"/>
+  <g stroke="#0A0610" stroke-width="2.4" fill="none" stroke-linecap="round">
+    <path d="M10,158 q-8,-6 -9,-14"/><path d="M10,163 q-9,-1 -9,8"/>
+    <path d="M24,158 q8,-6 9,-14"/><path d="M24,163 q9,-1 9,8"/>
+    <path d="M12,168 q-7,4 -7,12"/><path d="M22,168 q7,4 7,12"/>
+  </g>
+  <ellipse cx="17" cy="163" rx="9" ry="11" fill="#0A0610"/>
+  <circle cx="13.5" cy="157" r="1.6" fill="#FF7A18"/>
+  <circle cx="20.5" cy="157" r="1.6" fill="#FF7A18"/>
+</svg>
+
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ===================== CONTENIDO ===================== -->
 <header class="hero">
-  <span class="eyebrow">☀️ Edición 2026</span>
+  <span class="eyebrow">🍂 Edición 2026 🎃</span>
   <h1 id="titulo">Mi <span class="pop">Wishlist</span></h1>
-  <p class="sub" id="subtitulo">Cargando deseos…</p>
+  <p class="sub" id="subtitulo">Encendiendo las calabazas…</p>
   <div class="stats" id="stats"></div>
+  <a class="scroll-hint" href="#lista" aria-label="Ir a la lista">
+    <span>baja al claro del bosque</span>
+    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2 L11 11 L20 2"/></svg>
+  </a>
 </header>
 
 <div class="wrap">
+  <span id="lista" class="anchor" aria-hidden="true"></span>
   <nav class="controls" id="controls" aria-label="Filtrar regalos"></nav>
 
   <main class="grid" id="grid">
-    <div class="msg"><div class="loader"></div>Sacando la lista de la mochila de playa…</div>
+    <div class="msg"><div class="loader"></div>Buscando la lista entre la hojarasca…</div>
   </main>
 </div>
-
-<footer>
-  Hecho con sol, mar y <b>cariño</b> · edita <b>wishlist.json</b> para cambiar los regalos
-</footer>
 
 <script>
 const $ = (s,c=document)=>c.querySelector(s);
 const $$ = (s,c=document)=>[...c.querySelectorAll(s)];
 const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-/* burbujas ambientales */
+/* ---------- estrellas ---------- */
 (function(){
-  if(reduceMotion) return;
-  const b=$('#bubbles');
-  for(let i=0;i<16;i++){
-    const d=document.createElement('div');
-    const size=8+Math.random()*34;
-    d.className='bubble';
-    d.style.left=Math.random()*100+'vw';
-    d.style.width=d.style.height=size+'px';
-    d.style.animationDuration=(9+Math.random()*12)+'s';
-    d.style.animationDelay=(-Math.random()*14)+'s';
-    b.appendChild(d);
+  const box=$('#stars');
+  const n = reduceMotion ? 40 : 90;
+  let html='';
+  for(let i=0;i<n;i++){
+    const s=(Math.random()*2.2+.8).toFixed(2);
+    html+=`<span class="star" style="left:${(Math.random()*100).toFixed(2)}%;top:${(Math.random()*100).toFixed(2)}%;
+      width:${s}px;height:${s}px;animation-delay:${(-Math.random()*4).toFixed(2)}s;
+      animation-duration:${(2.5+Math.random()*4).toFixed(2)}s;opacity:${(.2+Math.random()*.7).toFixed(2)}"></span>`;
   }
+  box.innerHTML=html;
 })();
 
-/* fuegos artificiales de cumpleaños */
+/* ---------- hojas de otoño + brasas ---------- */
 (function(){
   if(reduceMotion) return;
-  const cv=$('#fw'), ctx=cv.getContext('2d');
+  const cv=$('#lv'), ctx=cv.getContext('2d');
   let W,H,DPR;
   function resize(){
     DPR=Math.min(window.devicePixelRatio||1,2);
@@ -357,79 +895,112 @@ const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
   }
   resize(); addEventListener('resize',resize);
 
-  const COLORS=['#FF2D6B','#FF6B00','#FFD400','#20E070','#00C2FF','#3B5BFF','#B14BFF','#FF3DDA','#FF1744'];
-  const rockets=[], sparks=[];
   const rand=(a,b)=>a+Math.random()*(b-a);
+  const LEAF_COLORS=['#C75B12','#E08A1E','#A8330E','#8E5A15','#D4471B','#7A3B12','#E0A93B','#6E2F10'];
 
-  function launch(){
-    rockets.push({
-      x:rand(W*.15,W*.85), y:H,
-      vy:rand(-14,-19)*DPR, vx:rand(-1.5,1.5)*DPR,
-      color:COLORS[(Math.random()*COLORS.length)|0],
-      target:rand(H*.12,H*.42)
-    });
+  const leaves=[], embers=[];
+
+  function newLeaf(y){
+    return {
+      x:rand(0,W), y:y??rand(-H*.4,-20),
+      size:rand(7,15)*DPR,
+      vy:rand(.5,1.5)*DPR,
+      sway:rand(.6,2.1)*DPR,
+      swaySpeed:rand(.008,.022),
+      phase:rand(0,Math.PI*2),
+      rot:rand(0,Math.PI*2),
+      vrot:rand(-.028,.028),
+      color:LEAF_COLORS[(Math.random()*LEAF_COLORS.length)|0],
+      alpha:rand(.55,1)
+    };
+  }
+  function newEmber(){
+    return {
+      x:rand(W*.32,W*.68), y:H*rand(.86,1.0),
+      r:rand(1.1,2.6)*DPR,
+      vy:rand(-.5,-1.4)*DPR, vx:rand(-.35,.35)*DPR,
+      life:1, decay:rand(.003,.008),
+      color:Math.random()<.35?'#FFD36B':'#FF7A18'
+    };
   }
 
-  function explode(x,y,color){
-    const n=52+((Math.random()*28)|0);
-    for(let i=0;i<n;i++){
-      const a=(Math.PI*2*i)/n, sp=rand(2.2,7)*DPR;
-      sparks.push({
-        x,y,
-        vx:Math.cos(a)*sp, vy:Math.sin(a)*sp,
-        life:1, decay:rand(.010,.022),
-        color:Math.random()<.12?'#fff':color,
-        size:rand(2,3.4)*DPR
-      });
-    }
+  const LEAF_N = innerWidth<720 ? 26 : 48;
+  for(let i=0;i<LEAF_N;i++) leaves.push(newLeaf());
+  for(let i=0;i<18;i++) embers.push(newEmber());
+
+  function drawLeaf(l){
+    const s=l.size;
+    ctx.save();
+    ctx.translate(l.x,l.y);
+    ctx.rotate(l.rot);
+    ctx.globalAlpha=l.alpha;
+    ctx.fillStyle=l.color;
+    ctx.beginPath();
+    ctx.moveTo(0,-s);
+    ctx.bezierCurveTo(s*.95,-s*.45, s*.95, s*.5, 0, s);
+    ctx.bezierCurveTo(-s*.95, s*.5, -s*.95,-s*.45, 0,-s);
+    ctx.fill();
+    ctx.strokeStyle='rgba(0,0,0,.35)';
+    ctx.lineWidth=Math.max(1,s*.09);
+    ctx.beginPath(); ctx.moveTo(0,-s*.9); ctx.lineTo(0,s*.9); ctx.stroke();
+    ctx.restore();
   }
 
   function tick(){
-    // rastro sutil: aclara ligeramente el frame anterior (estela corta)
-    ctx.globalCompositeOperation='source-over';
-    ctx.fillStyle='rgba(255,246,233,.30)';
-    ctx.fillRect(0,0,W,H);
+    ctx.clearRect(0,0,W,H);
 
-    for(let i=rockets.length-1;i>=0;i--){
-      const r=rockets[i];
-      r.x+=r.vx; r.y+=r.vy; r.vy+=.16*DPR;
-      ctx.beginPath();
-      ctx.fillStyle=r.color;
-      ctx.shadowColor=r.color; ctx.shadowBlur=12;
-      ctx.arc(r.x,r.y,2.6*DPR,0,7);
-      ctx.fill();
-      if(r.vy>=0 || r.y<=r.target){ explode(r.x,r.y,r.color); rockets.splice(i,1); }
+    for(let i=0;i<leaves.length;i++){
+      const l=leaves[i];
+      l.phase+=l.swaySpeed;
+      l.x+=Math.sin(l.phase)*l.sway;
+      l.y+=l.vy;
+      l.rot+=l.vrot;
+      if(l.y-l.size>H) leaves[i]=newLeaf(-20);
+      else if(l.x<-40) l.x=W+30;
+      else if(l.x>W+40) l.x=-30;
+      else drawLeaf(l);
     }
 
-    for(let i=sparks.length-1;i>=0;i--){
-      const s=sparks[i];
-      s.x+=s.vx; s.y+=s.vy; s.vy+=.05*DPR; s.vx*=.985; s.vy*=.985;
-      s.life-=s.decay;
-      if(s.life<=0){ sparks.splice(i,1); continue; }
-      ctx.globalAlpha=Math.max(s.life,0);
-      ctx.fillStyle=s.color;
-      ctx.shadowColor=s.color; ctx.shadowBlur=10;
-      ctx.beginPath();
-      ctx.arc(s.x,s.y,s.size,0,7);
-      ctx.fill();
-    }
-    ctx.shadowBlur=0;
     ctx.globalAlpha=1;
+    for(let i=0;i<embers.length;i++){
+      const e=embers[i];
+      e.x+=e.vx; e.y+=e.vy; e.vy*=.995;
+      e.life-=e.decay;
+      if(e.life<=0 || e.y<H*.35){ embers[i]=newEmber(); continue; }
+      ctx.globalAlpha=Math.max(e.life,0)*(.5+Math.random()*.5);
+      ctx.fillStyle=e.color;
+      ctx.shadowColor=e.color; ctx.shadowBlur=10;
+      ctx.beginPath(); ctx.arc(e.x,e.y,e.r,0,7); ctx.fill();
+    }
+    ctx.shadowBlur=0; ctx.globalAlpha=1;
     requestAnimationFrame(tick);
   }
   tick();
-
-  // lanza en tandas festivas
-  setInterval(()=>{ if(document.hidden) return;
-    launch(); if(Math.random()<.5) setTimeout(launch,rand(150,450)); }, 900);
-  // salva de bienvenida
-  setTimeout(()=>{launch();launch();},600);
 })();
 
+/* ---------- parallax suave del bosque ---------- */
+(function(){
+  if(reduceMotion) return;
+  const far=$('#lFar'), mid=$('#lMid'), moon=$('#moon');
+  let ticking=false;
+  function update(){
+    const y=scrollY;
+    far.style.transform =`translateY(${y*.030}px)`;
+    mid.style.transform =`translateY(${y*.060}px)`;
+    moon.style.transform=`translateY(${y*-.020}px)`;
+    ticking=false;
+  }
+  addEventListener('scroll',()=>{
+    if(!ticking){ requestAnimationFrame(update); ticking=true; }
+  },{passive:true});
+})();
+
+/* ---------- datos ---------- */
 const PRIO_ORDER={alta:0,media:1,baja:2};
-const PRIO_LABEL={alta:'Prioridad alta',media:'Prioridad media',baja:'Prioridad baja'};
+const PRIO_LABEL={alta:'Imprescindible',media:'Prioridad media',baja:'Prioridad baja'};
 let DATA=null, activeCat='Todo';
 
+const num = v => { const n = typeof v==='number' ? v : parseFloat(String(v).replace(',','.')); return isFinite(n) ? n : null; };
 const fmt = (n,cur)=> new Intl.NumberFormat('es-ES').format(n)+' '+cur;
 
 async function load(){
@@ -440,7 +1011,7 @@ async function load(){
     render();
   }catch(e){
     $('#grid').innerHTML =
-      `<div class="msg">🏖️ No pude leer <b>wishlist.json</b>.<br>
+      `<div class="msg">🕸️ No pude leer <b>wishlist.json</b>.<br>
        Asegúrate de abrir la web desde un servidor (o que el archivo esté al lado del HTML).</div>`;
     console.error(e);
   }
@@ -452,7 +1023,7 @@ function render(){
 
   const cur = DATA.moneda||'€';
   const items = DATA.regalos;
-  const total = items.reduce((a,r)=>a+(+r.precio||0),0);
+  const total = items.reduce((a,r)=>a+(num(r.precio)||0),0);
   const altas = items.filter(r=>r.prioridad==='alta').length;
 
   $('#stats').innerHTML = `
@@ -476,27 +1047,32 @@ function render(){
 function paint(){
   const cur = DATA.moneda||'€';
   let items=[...DATA.regalos].sort((a,b)=>
-    (PRIO_ORDER[a.prioridad]??9)-(PRIO_ORDER[b.prioridad]??9) || b.precio-a.precio);
+    (PRIO_ORDER[a.prioridad]??9)-(PRIO_ORDER[b.prioridad]??9) || (num(b.precio)||0)-(num(a.precio)||0));
   if(activeCat!=='Todo') items=items.filter(r=>r.categoria===activeCat);
 
   const grid=$('#grid');
-  if(!items.length){grid.innerHTML='<div class="msg">No hay nada en esta categoría 🐚</div>';return;}
+  if(!items.length){grid.innerHTML='<div class="msg">No hay nada en esta categoría 🕷️</div>';return;}
 
   grid.innerHTML = items.map(r=>{
-    const links=(r.links||[]).map(l=>
-      `<a href="${l.url}" target="_blank" rel="noopener">${l.tienda}</a>`).join('');
+    const links=(r.links||[])
+      .filter(l=>l.url)
+      .map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${l.tienda}</a>`).join('');
+    const p = num(r.precio);
+    const precio = p===null
+      ? `<div class="price tbd">Precio por confirmar</div>`
+      : `<div class="price">${fmt(p,cur)} <small>máximo</small></div>`;
     return `
     <article class="card">
       <div class="ph">
         <div class="badges"><span class="badge cat">${r.categoria}</span></div>
         <span class="prio ${r.prioridad}">${PRIO_LABEL[r.prioridad]||r.prioridad}</span>
         <img src="${r.foto}" alt="${r.nombre}" loading="lazy"
-             onerror="this.style.opacity=0;this.parentElement.style.background='linear-gradient(135deg,#FFD9C2,#1FB6C1)'">
+             onerror="this.style.opacity=0;this.parentElement.style.background='linear-gradient(135deg,#3A2418,#C75B12 55%,#2A1B4A)'">
       </div>
       <div class="body">
         <h3>${r.nombre}</h3>
         <p class="desc">${r.descripcion||''}</p>
-        <div class="price">${fmt(r.precio,cur)} <small>máximo</small></div>
+        ${precio}
         <div class="links">${links||'<span class="desc">Sin links aún</span>'}</div>
       </div>
     </article>`;

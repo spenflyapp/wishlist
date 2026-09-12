@@ -1,53 +1,84 @@
 {
-  "titulo": "Mi Wishlist de Cumpleaños",
+  "titulo": "Wishlist Èric",
   "subtitulo": "Para dudas contactar con el grandioso Eric",
   "moneda": "€",
   "regalos": [
     {
-      "nombre": "Figura Amiibo - Nintendo The Legend of Zelda. Tears of the Kingdom: Mineru's Construct",
+      "nombre": "Figura Amiibo - Nintendo The Legend of Zelda. Ocarina of Time: Link",
       "categoria": "Amiibo",
       "prioridad": "media",
-      "precio": 29.99,
-      "descripcion": "IMPORTANTE: No está disponible hasta Septiembre. 25.50€ con el descuento del 15% en El Corte Inglés",
-      "foto": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_176079026?x=1800&y=1800&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=1800&ey=1800&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=1800&cdy=1800",
+      "precio": "24,99",
+      "descripcion": "",
+      "foto": "https://pbs.twimg.com/media/HRyfzQsWkAAmcDw?format=png&name=900x900",
       "links": [
-        { "tienda": "Mediamarkt", "url": "https://www.mediamarkt.es/es/product/_figura-amiibo-nintendo-the-legend-of-zelda-tears-of-the-kingdom-minerus-construct-1666648.html?utm_source=google&utm_medium=v2-sho&utm_campaign=es|mm|rt|v2-sho|pmax|nsp|resto-categorias|na|d2c|aon|OSB0003N04&utm_content=OSB0003N04-TCID19605023726&gclsrc=aw.ds&gad_source=1&gad_campaignid=19605029725&gbraid=0AAAAADL_At-xLrDqoKtzLlMWELH6w7wHZ&gclid=Cj0KCQjwiJvQBhCYARIsAMjts3JqExsWoiMUp7Hs9UJYsCZtmb4gZj6yMQW1lKpxYTzwTpjl8NCZznkaAnU6EALw_wcB" },
-        { "tienda": "El Corte Inglés", "url": "https://www.elcorteingles.es/videojuegos/A200906732-amiibo-mineru-zelda-tears-of-the-kingdom/?aff_id=2118094&utm_source=awin&utm_medium=affiliates&utm_campaign=eci_fv_fv_cm360_affiliate_afiliacion_20190901-20300228_na_purch_af319&utm_content=text&utm_term=afiliacion-generico_1x1_CCD_02-06-2016-css-shoparize&awc=13075_1782896637_356d0714dbbf4ac43d6e231d64a5d478&gad_source=7&dclid=CLf588WPsZUDFbIMBgAdhG8Buw" }
+        { "tienda": "TBD", "url": "" }
       ]
     },
     {
-      "nombre": "The Adventures of Elliot: The Millennium Tales Nintendo Switch 2",
-      "categoria": "Juego Nintendo Switch 2",
+      "nombre": "Figura Amiibo - Nintendo The Legend of Zelda. Ocarina of Time: Zelda",
+      "categoria": "Amiibo",
       "prioridad": "media",
-      "precio": 66.99,
-      "descripcion": "59.50€ con el descuento del 15% en El Corte Inglés",
-      "foto": "https://dam.elcorteingles.es/producto/www-001097563510086-00.jpg?impolicy=frontWebHQ&shape=square",
+      "precio": "24,99",
+      "descripcion": "",
+      "foto": "https://pbs.twimg.com/media/HRyf0vHXsAEHVGJ?format=jpg&name=large",
       "links": [
-        { "tienda": "Mediamarkt", "url": "https://www.mediamarkt.es/es/product/_nintendo-switch-2-the-adventures-of-elliot-the-millennium-tales-game-key-card-1620443.html?tduid=c7e8e648ddb09b746b910d9a8884132c&utm_source=tradedoubler&utm_medium=v2-aff&utm_campaign=es|mm|rt|v2-aff|pfm|nsp|nacional|na|d2c|Twenga__ES_&utm_term=3144836&utm_content=aon" },
-        { "tienda": "El Corte Inglés", "url": "https://www.elcorteingles.es/videojuegos/A200291732-the-adventures-of-elliot-the-millennium-tales-nintendo-switch-2-gkc/?aff_id=2118094&utm_source=awin&utm_medium=affiliates&utm_campaign=eci_fv_fv_cm360_affiliate_afiliacion_20190901-20300228_na_purch_af319&utm_content=text&utm_term=afiliacion-generico_1x1_CCD_02-06-2016-css-shoparize&awc=13075_1782896924_6a0882571571a872a8c83cec2aea67dd&gad_source=7&dclid=CI20386QsZUDFRssBgAdq0gDlA"}
+        { "tienda": "TBD", "url": "" }
       ]
     },
     {
-      "nombre": "Givenchy Society Eau de Parfum Sport",
-      "categoria": "Perfumes",
+      "nombre": "Flipper One",
+      "categoria": "Tech",
       "prioridad": "media",
-      "precio": 64.94,
-      "descripcion": "60ml o 100ml a decisión del comprador, me va a gustar igual",
-      "foto": "https://www.druni.es/media/catalog/product/1/0/10573_2.jpg?quality=80&fit=bounds&height=750&width=750&canvas=750:750",
+      "precio": "TBD",
+      "descripcion": "Flipper One is an open Linux platform you can build almost anything on",
+      "foto": "https://blog.flipper.net/content/images/size/w2000/2026/05/Flipper-One-we-need-your-help-main-v2.jpg",
       "links": [
-        { "tienda": "Druni", "url": "https://www.druni.es/gentleman-society-sport-givenchy-eau-parfum-hombre?srsltid=AfmBOooICjGxXzppBmoDGSf7-KLa4NO44ghLbPDpkKWCAjmIHgRosWkf" },
-        { "tienda": "Primor", "url": "https://www.primor.eu/es_es/givenchy-gentleman-society-eau-de-parfum-sport-140733.html?&utm_source=google&utm_medium=cpc&utm_campaign=es-i-p-p-31-60&utm_id=17947840070&gad_source=1&gad_campaignid=17413366536&gclid=Cj0KCQjw3qLSBhDaARIsAFTiVh7mTVmskKM0e1x4ocqvTMK3YRmYJqo6QuqJIe6iBlUyt5zWZ1jtjJ8aAm4HEALw_wcB#863=71114"}
+        { "tienda": "Flipper Blog", "url": "https://blog.flipper.net/" }
       ]
     },
     {
-      "nombre": "Guantes Moto TBD",
-      "categoria": "Moto",
+      "nombre": "Ayn Thor PRO 12+256GB + Accesories",
+      "categoria": "Tech",
       "prioridad": "media",
-      "precio": 0,
-      "descripcion": "TBD",
-      "foto": "https://t3.ftcdn.net/jpg/06/16/17/88/360_F_616178830_rySDz4kA4m5l7tiWta1O0qLAFhFqw2eS.jpg",
+      "precio": "459",
+      "descripcion": "Color Negro",
+      "foto": "https://www.ayntec.com/cdn/shop/files/Black_7b6bd0d9-735f-48ff-b0d5-e7fa2fe7e167.jpg?v=1756118885",
       "links": [
-        { "tienda": "Motocard", "url": "" }
+        { "tienda": "Ayntec (Console)", "url": "https://www.ayntec.com/products/ayn-thor?variant=46692546478272" },
+        { "tienda": "Ayntec (Accesories)", "url": "https://www.ayntec.com/products/thor-accessories-pack?pr_prod_strat=jac&pr_rec_id=841f15edc&pr_rec_pid=8306953355456&pr_ref_pid=8306375426240&pr_seq=uniform" }
+      ]
+    },
+    {
+      "nombre": "Nintendo Switch Sports Resort",
+      "categoria": "Game",
+      "prioridad": "media",
+      "precio": "49.90",
+      "descripcion": "",
+      "foto": "https://m.media-amazon.com/images/I/81jygw4JuCL._AC_SL1500_.jpg",
+      "links": [
+        { "tienda": "Amazon", "url": "https://www.amazon.es/Nintendo-Switch-Sports-Resort/dp/B0H4RM453L/ref=asc_df_B0H4RM453L?mcid=edb53f9d87d73f15b4b03eaed3e9d447&tag=googshopes-21&linkCode=df0&hvadid=807190783607&hvpos=&hvnetw=g&hvrand=14088324148089856187&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198465&hvtargid=pla-2510822859834&psc=1&hvocijid=14088324148089856187-B0H4RM453L-&hvexpln=0" }
+      ]
+    },
+    {
+      "nombre": "El profesor Layton y el Nuevo Mundo a vapor",
+      "categoria": "Game",
+      "prioridad": "media",
+      "precio": "TBD",
+      "descripcion": "",
+      "foto": "https://pbs.twimg.com/media/GntzXeuXoAMX-ZH?format=jpg&name=large",
+      "links": [
+        { "tienda": "TBD", "url": "" }
+      ]
+    },
+    {
+      "nombre": "Zapatillas de montaña y trekking GoreTex Hombre Salomon X-Ultra Pioneer 2",
+      "categoria": "Ropa",
+      "prioridad": "media",
+      "precio": "83,99",
+      "descripcion": "",
+      "foto": "https://contents.mediadecathlon.com/p2619059/k$36556e920ed072ae3a0cc109f3efb5de/picture.jpg?format=auto&f=3000x0",
+      "links": [
+        { "tienda": "Decathlon", "url": "https://www.decathlon.es/es/p/zapatillas-de-montana-y-trekking-goretex-hombre-salomon-x-ultra-pioneer-2/X8880883/m8880883" }
       ]
     }
   ]
