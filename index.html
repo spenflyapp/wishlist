@@ -178,11 +178,19 @@
   .web.r{right:0;transform:scaleX(-1)}
   .spider{
     position:fixed;top:0;right:16vw;z-index:18;pointer-events:none;
+    width:34px;height:40px;
     animation:hang 9s ease-in-out infinite;
   }
+  .spider .thread{
+    position:absolute;left:50%;bottom:100%;
+    width:1px;height:100vh;margin-left:-.5px;
+    background:linear-gradient(180deg,
+      rgba(234,223,208,0) 0%,rgba(234,223,208,.42) 22%,rgba(234,223,208,.55) 100%);
+  }
+  .spider svg{display:block}
   @keyframes hang{
-    0%,100%{transform:translateY(-160px)}
-    45%,65%{transform:translateY(14vh)}
+    0%,100%{transform:translateY(-52px)}
+    42%,68%{transform:translateY(18vh)}
   }
 
   /* viñeta para dar profundidad al bosque */
@@ -845,17 +853,20 @@
   <path d="M0,0 L200,60 M0,0 L150,150 M0,0 L60,200 M0,0 L190,20 M0,0 L20,190"/>
   <path d="M28,6 Q22,22 6,28 M56,12 Q44,44 12,56 M84,18 Q66,66 18,84 M112,24 Q88,88 24,112 M140,30 Q110,110 30,140"/>
 </svg>
-<svg class="spider" width="34" height="190" viewBox="0 0 34 190" aria-hidden="true">
-  <line x1="17" y1="0" x2="17" y2="150" stroke="#EADFD0" stroke-width="1" opacity=".45"/>
-  <g stroke="#0A0610" stroke-width="2.4" fill="none" stroke-linecap="round">
-    <path d="M10,158 q-8,-6 -9,-14"/><path d="M10,163 q-9,-1 -9,8"/>
-    <path d="M24,158 q8,-6 9,-14"/><path d="M24,163 q9,-1 9,8"/>
-    <path d="M12,168 q-7,4 -7,12"/><path d="M22,168 q7,4 7,12"/>
-  </g>
-  <ellipse cx="17" cy="163" rx="9" ry="11" fill="#0A0610"/>
-  <circle cx="13.5" cy="157" r="1.6" fill="#FF7A18"/>
-  <circle cx="20.5" cy="157" r="1.6" fill="#FF7A18"/>
-</svg>
+<div class="spider" aria-hidden="true">
+  <span class="thread"></span>
+  <svg width="34" height="40" viewBox="0 0 34 40">
+    <line x1="17" y1="0" x2="17" y2="10" stroke="#EADFD0" stroke-width="1" opacity=".5"/>
+    <g stroke="#0A0610" stroke-width="2.4" fill="none" stroke-linecap="round">
+      <path d="M10,14 q-8,-6 -9,-14"/><path d="M10,19 q-9,-1 -9,8"/>
+      <path d="M24,14 q8,-6 9,-14"/><path d="M24,19 q9,-1 9,8"/>
+      <path d="M12,24 q-7,4 -7,12"/><path d="M22,24 q7,4 7,12"/>
+    </g>
+    <ellipse cx="17" cy="19" rx="9" ry="11" fill="#0A0610"/>
+    <circle cx="13.5" cy="13" r="1.6" fill="#FF7A18"/>
+    <circle cx="20.5" cy="13" r="1.6" fill="#FF7A18"/>
+  </svg>
+</div>
 
 <div class="vignette" aria-hidden="true"></div>
 
