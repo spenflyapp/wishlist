@@ -166,8 +166,8 @@
   .litter{position:fixed;bottom:0;left:0;width:100%;z-index:15;line-height:0;pointer-events:none}
   .litter svg{width:100%;height:140px;display:block}
   /* detrás del plano medio: es una loma lejana, no debe cortar la cabaña */
-  .litter.back{z-index:-4;opacity:.9}
-  .litter.front{z-index:16}
+  .litter.back{z-index:-4;opacity:.9;bottom:40px}
+  .litter.front{z-index:16;bottom:34px}
 
   /* hojas cayendo */
   .leaves{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
@@ -484,6 +484,16 @@
 
   @media (max-width:680px){
     header.hero{padding:64px 18px 40px}
+
+    /* en pantalla pequeña el suelo del bosque comía demasiada altura útil:
+       aquí ocupa algo menos de la mitad */
+    .litter svg{height:66px}
+    .litter.front{bottom:14px}
+    .litter.back{bottom:20px}
+    .ground-body{height:22px}
+    .fog.b{height:74px}
+    .grid{padding:24px 0 96px}
+
     .scroll-hint{right:50%;transform:translateX(50%)}
     .scroll-hint span{display:none}
     .card{padding:11px 11px 13px}
@@ -590,15 +600,21 @@
       <use href="#pine" x="1364" y="192" width="106" height="208"/>
     </g>
 
+    <!-- resplandor cálido de la cabaña: por DETRÁS del suelo, si no lo aclara
+         y el suelo deja de leerse como suelo -->
+    <ellipse cx="548" cy="278" rx="180" ry="58" fill="#FF7A18" opacity=".20" filter="url(#glowBig)"/>
+
     <!-- suelo del claro: la cabaña y el espantapájaros se apoyan aquí -->
-    <path fill="#170D22" d="M0,374 C120,364 220,354 330,348 C400,344 460,344 560,344 C660,344 720,348 820,354 C940,362 1060,356 1180,362 C1300,368 1380,374 1440,370 L1440,400 L0,400 Z"/>
-    <path fill="none" stroke="#FF7A18" stroke-opacity=".10" stroke-width="3" d="M330,348 C400,344 460,344 560,344 C660,344 720,348 820,354"/>
+    <path fill="#170D22" d="M0,376 C60,371 110,362 180,348 C240,338 320,333 560,333 C700,333 780,339 860,349 C960,359 1060,354 1180,360 C1300,366 1380,372 1440,368 L1440,400 L0,400 Z"/>
+    <path fill="none" stroke="#FF7A18" stroke-opacity=".12" stroke-width="3" d="M180,348 C240,338 320,333 560,333 C700,333 780,339 860,349"/>
+
+    <!-- sombras de apoyo: sin ellas la cabaña y el espantapájaros parecen flotar
+         aunque geométricamente estén enterrados en la loma -->
+    <ellipse cx="548" cy="343" rx="132" ry="9" fill="#07040D" opacity=".6" filter="url(#glowSm)"/>
+    <ellipse cx="350" cy="345" rx="48" ry="6" fill="#07040D" opacity=".55" filter="url(#glowSm)"/>
 
     <!-- ===== CABAÑA ===== -->
     <g transform="translate(408,124)">
-      <!-- resplandor cálido general -->
-      <ellipse cx="140" cy="180" rx="190" ry="78" fill="#FF7A18" opacity=".22" filter="url(#glowBig)"/>
-
       <!-- humo de la chimenea -->
       <g fill="#C9BBD6">
         <circle class="smoke" cx="213" cy="34" r="8" style="animation-delay:0s"/>
@@ -765,7 +781,7 @@
 <canvas class="leaves" id="lv" aria-hidden="true"></canvas>
 
 <!-- Hojarasca trasera: las tarjetas se hunden aquí -->
-<div class="litter back" aria-hidden="true" style="bottom:40px">
+<div class="litter back" aria-hidden="true">
   <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
     <path fill="#160D24" d="M0,74 C120,44 210,88 330,66 C450,44 530,90 650,72 C770,54 850,94 970,74 C1090,54 1180,92 1300,72 C1360,62 1400,68 1440,60 L1440,140 L0,140 Z"/>
   </svg>
@@ -795,7 +811,7 @@
 <div class="ground-body" aria-hidden="true"></div>
 
 <!-- Hojarasca frontal -->
-<div class="litter front" aria-hidden="true" style="bottom:34px">
+<div class="litter front" aria-hidden="true">
   <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
     <path fill="#0A0610" d="M0,92 C160,58 240,104 380,84 C520,64 600,110 740,92 C880,74 960,112 1100,90 C1240,68 1330,104 1440,86 L1440,140 L0,140 Z"/>
     <g opacity=".85">

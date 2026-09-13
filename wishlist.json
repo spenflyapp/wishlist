@@ -8,7 +8,7 @@
       "categoria": "Amiibo",
       "prioridad": "media",
       "precio": "24,99",
-      "descripcion": "",
+      "descripcion": "Release date: 2027",
       "foto": "https://pbs.twimg.com/media/HRyfzQsWkAAmcDw?format=png&name=900x900",
       "links": [
         { "tienda": "TBD", "url": "" }
@@ -19,7 +19,7 @@
       "categoria": "Amiibo",
       "prioridad": "media",
       "precio": "24,99",
-      "descripcion": "",
+      "descripcion": "Release date: 2027",
       "foto": "https://pbs.twimg.com/media/HRyf0vHXsAEHVGJ?format=jpg&name=large",
       "links": [
         { "tienda": "TBD", "url": "" }
@@ -30,7 +30,7 @@
       "categoria": "Tech",
       "prioridad": "media",
       "precio": "TBD",
-      "descripcion": "Flipper One is an open Linux platform you can build almost anything on",
+      "descripcion": "Release date: ¿?",
       "foto": "https://blog.flipper.net/content/images/size/w2000/2026/05/Flipper-One-we-need-your-help-main-v2.jpg",
       "links": [
         { "tienda": "Flipper Blog", "url": "https://blog.flipper.net/" }
@@ -60,14 +60,15 @@
       ]
     },
     {
-      "nombre": "El profesor Layton y el Nuevo Mundo a vapor",
+      "nombre": "Metroid Ravenous",
       "categoria": "Game",
       "prioridad": "media",
       "precio": "TBD",
-      "descripcion": "",
-      "foto": "https://pbs.twimg.com/media/GntzXeuXoAMX-ZH?format=jpg&name=large",
+      "descripcion": "Release date: 28 de enero de 2027",
+      "foto": "https://m.media-amazon.com/images/I/81HhaUkQ9TL._SL1500_.jpg",
       "links": [
-        { "tienda": "TBD", "url": "" }
+        { "tienda": "El Corte Inglés", "url": "" },
+        { "tienda": "Amazon", "url": "" }
       ]
     },
     {
@@ -75,11 +76,26 @@
       "categoria": "Ropa",
       "prioridad": "media",
       "precio": "83,99",
-      "descripcion": "",
+      "descripcion": "Talla 43",
       "foto": "https://contents.mediadecathlon.com/p2619059/k$36556e920ed072ae3a0cc109f3efb5de/picture.jpg?format=auto&f=3000x0",
       "links": [
         { "tienda": "Decathlon", "url": "https://www.decathlon.es/es/p/zapatillas-de-montana-y-trekking-goretex-hombre-salomon-x-ultra-pioneer-2/X8880883/m8880883" }
       ]
+    },
+    {
+      "nombre": "Kirby and the World Beyond",
+      "categoria": "Game",
+      "prioridad": "media",
+      "precio": "TBD",
+      "descripcion": "Release date: 2027",
+      "foto": "https://assets.nintendo.com/image/upload/q_auto/f_auto/store/software/switch2/70010000135065/fe13a7b668404d0b6d22b7487db300ec877e75ac158e1b94c48518c1e41d90d9",
+      "links": [
+        { "tienda": "El Corte Inglés", "url": "" },
+        { "tienda": "Amazon", "url": "" }
+      ]
     }
   ]
 }
+
+
+
