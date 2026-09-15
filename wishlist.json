@@ -93,6 +93,18 @@
         { "tienda": "El Corte Inglés", "url": "" },
         { "tienda": "Amazon", "url": "" }
       ]
+    },
+    {
+      "nombre": "Splatoon Raiders",
+      "categoria": "Game",
+      "prioridad": "media",
+      "precio": "52,99",
+      "descripcion": "Con descuente de El Corte Inglés mas barato",
+      "foto": "https://m.media-amazon.com/images/I/81PCANc2cEL._AC_SL1500_.jpg",
+      "links": [
+        { "tienda": "El Corte Inglés", "url": "https://www.elcorteingles.es/videojuegos/A200805227-splatoon-raiders-nintendo-switch-2/" },
+        { "tienda": "Amazon", "url": "https://www.amazon.es/Nintendo-Splatoon-Raiders/dp/B0GY5GY45X" }
+      ]
     }
   ]
 }
