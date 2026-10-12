@@ -37,18 +37,6 @@
       ]
     },
     {
-      "nombre": "Ayn Thor PRO 12+256GB + Accesories",
-      "categoria": "Tech",
-      "prioridad": "media",
-      "precio": "459",
-      "descripcion": "Color Negro",
-      "foto": "https://www.ayntec.com/cdn/shop/files/Black_7b6bd0d9-735f-48ff-b0d5-e7fa2fe7e167.jpg?v=1756118885",
-      "links": [
-        { "tienda": "Ayntec (Console)", "url": "https://www.ayntec.com/products/ayn-thor?variant=46692546478272" },
-        { "tienda": "Ayntec (Accesories)", "url": "https://www.ayntec.com/products/thor-accessories-pack?pr_prod_strat=jac&pr_rec_id=841f15edc&pr_rec_pid=8306953355456&pr_ref_pid=8306375426240&pr_seq=uniform" }
-      ]
-    },
-    {
       "nombre": "Nintendo Switch Sports Resort",
       "categoria": "Game",
       "prioridad": "media",
