@@ -75,12 +75,23 @@
       "nombre": "Splatoon Raiders",
       "categoria": "Game",
       "prioridad": "media",
-      "precio": "52,99",
-      "descripcion": "Con descuente de El Corte Inglés mas barato",
+      "precio": "49,98",
+      "descripcion": "Con descuente de El Corte Inglés 52,99",
       "foto": "https://m.media-amazon.com/images/I/81PCANc2cEL._AC_SL1500_.jpg",
       "links": [
         { "tienda": "El Corte Inglés", "url": "https://www.elcorteingles.es/videojuegos/A200805227-splatoon-raiders-nintendo-switch-2/" },
         { "tienda": "Amazon", "url": "https://www.amazon.es/Nintendo-Splatoon-Raiders/dp/B0GY5GY45X" }
+      ]
+    },
+    {
+      "nombre": "UGREEN FineTrack",
+      "categoria": "Tech",
+      "prioridad": "media",
+      "precio": "22,55",
+      "descripcion": "Pack 4",
+      "foto": "https://m.media-amazon.com/images/I/61zbp7TY9lL._AC_SL1500_.jpg",
+      "links": [
+        { "tienda": "Amazon", "url": "https://www.amazon.es/dp/B0F82HR8QZ/?coliid=I2VMQBIMFCZVDJ&colid=2S6ASCK3DSQC3&psc=1&ref_=list_c_wl_lv_ov_lig_dp_it" }
       ]
     }
   ]
