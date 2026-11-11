@@ -7,7 +7,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F3324'/%3E%3Cpath d='M32 4l2.6 5.4 6 .7-4.4 4 1.2 5.9L32 17l-5.4 3 1.2-5.9-4.4-4 6-.7z' fill='%23D4AF5A'/%3E%3Cpath d='M32 18L20 34h6L14 50h36L38 34h6z' fill='%231F6B45'/%3E%3Crect x='28' y='50' width='8' height='8' rx='1.5' fill='%237A4A26'/%3E%3Ccircle cx='28' cy='30' r='2.6' fill='%23C0272D'/%3E%3Ccircle cx='37' cy='42' r='2.6' fill='%23C0272D'/%3E%3Ccircle cx='25' cy='45' r='2.4' fill='%23F1DC9C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --pino:#0F3324;
@@ -23,9 +23,9 @@
     --papel:#FFFDF8;
     --tinta:#1E2A22;
     --tinta-soft:#6A6F66;
+    --tinta-carta:#1D3557;
     --r:16px;
     --shadow:0 18px 40px -20px rgba(0,0,0,.55);
-    --shadow-hover:0 26px 60px -22px rgba(0,0,0,.65),0 0 0 1px rgba(212,175,90,.6);
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -39,7 +39,6 @@
       radial-gradient(80% 50% at 50% 0%, rgba(192,39,45,.20), rgba(0,0,0,0) 70%),
       radial-gradient(60% 40% at 0% 60%, rgba(31,107,69,.35), rgba(0,0,0,0) 70%),
       radial-gradient(60% 40% at 100% 85%, rgba(31,107,69,.35), rgba(0,0,0,0) 70%),
-      /* patrón suave: copo, estrella y puntitos dorados */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='none' stroke='%23D4AF5A' stroke-opacity='.16' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M35 25v20M25 35h20M28 28l14 14M42 28L28 42M35 25l-3 3M35 25l3 3M35 45l-3-3M35 45l3-3M25 35l3-3M25 35l3 3M45 35l-3-3M45 35l-3 3'/%3E%3C/g%3E%3Cpath d='M105 97l2.2 4.6 5 .6-3.7 3.4 1 5-4.5-2.6-4.5 2.6 1-5-3.7-3.4 5-.6z' fill='%23D4AF5A' fill-opacity='.14'/%3E%3Cg fill='%23FBF6EA' fill-opacity='.10'%3E%3Ccircle cx='105' cy='30' r='1.6'/%3E%3Ccircle cx='35' cy='105' r='1.6'/%3E%3Ccircle cx='70' cy='70' r='1.2'/%3E%3C/g%3E%3C/svg%3E"),
       var(--pino);
     background-attachment:fixed;
@@ -117,10 +116,8 @@
     to{opacity:1;transform:translateY(0)}
   }
 
-  /* separador con acebo */
   .holly{display:block;margin:26px auto 0;width:84px;animation:fadeIn .8s .4s backwards}
 
-  /* contador resumen */
   .stats{
     display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
     margin-top:30px;
@@ -154,52 +151,203 @@
     0%,100%{transform:translateY(0)}
     50%{transform:translateY(5px)}
   }
-  .anchor{display:block;position:relative;top:-80px;height:0}
+  .anchor{display:block;position:relative;top:-20px;height:0}
 
-  /* ============ FILTROS ============ */
-  .controls{
-    display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
-    margin:30px 0 8px;
-    position:sticky;top:0;z-index:30;
-    padding:14px 0 18px;
-  }
-  .controls::before{
-    content:"";position:absolute;top:0;bottom:0;
-    left:50%;width:100vw;transform:translateX(-50%);
-    background:rgba(15,51,36,.92);
-    backdrop-filter:blur(8px);
-    z-index:-1;
-  }
-  /* cinta de caramelo bajo la barra */
-  .controls::after{
-    content:"";position:absolute;bottom:0;height:5px;
-    left:50%;width:100vw;transform:translateX(-50%);
-    background:repeating-linear-gradient(135deg,var(--rojo) 0 10px,var(--crema) 10px 20px,var(--verde) 20px 30px,var(--crema) 30px 40px);
-    opacity:.9;
-  }
-  .chip{
-    font-family:'Inter';font-weight:500;font-size:.86rem;
-    border:1px solid rgba(212,175,90,.5);
-    background:rgba(255,253,248,.06);color:var(--crema);
-    padding:8px 18px;border-radius:50px;cursor:pointer;
-    transition:background .2s,color .2s,border-color .2s,transform .2s;
-  }
-  .chip:hover{border-color:var(--oro);transform:translateY(-2px)}
-  .chip.active{
-    background:linear-gradient(180deg,#D0343A,var(--rojo-dark));
-    border-color:var(--oro);color:#fff;
-    box-shadow:0 6px 18px -8px rgba(192,39,45,.9);
-  }
-  .chip:focus-visible{outline:2px solid var(--oro-claro);outline-offset:2px}
+  /* ============ SOBRE ============ */
+  .mail{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 0 100px}
 
-  /* ============ TARJETAS ============ */
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    gap:28px;
-    padding:34px 0 100px;
+  .scene{
+    width:min(560px,100%);
+    padding-top:150px;          /* hueco para que la carta asome al salir */
+    display:flex;flex-direction:column;align-items:center;
+    opacity:0;transform:translateY(40px) rotate(-2deg);
+    transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);
   }
-  /* la tarjeta va envuelta en una cinta a rayas rojo, blanco y verde */
+  .scene[hidden]{display:none}
+  .scene.in{opacity:1;transform:translateY(0) rotate(-2deg)}
+  .scene.gone{opacity:0;transform:translateY(30px) scale(.96);transition-duration:.45s}
+
+  .envelope{
+    position:relative;width:100%;aspect-ratio:1.55;
+    border:0;background:none;padding:0;font:inherit;color:inherit;
+    cursor:pointer;display:block;
+    perspective:1400px;
+    filter:drop-shadow(0 26px 40px rgba(0,0,0,.45));
+    transition:transform .4s cubic-bezier(.22,1,.36,1);
+  }
+  .envelope:hover{transform:translateY(-4px)}
+  .envelope:focus-visible{outline:2px dashed var(--oro-claro);outline-offset:10px;border-radius:10px}
+  .envelope.open{cursor:default;transform:none}
+
+  .env-back{position:absolute;inset:0;border-radius:8px;
+    background:linear-gradient(180deg,#C9A675,#B89262)}
+
+  /* carta asomando dentro del sobre */
+  .env-letter{
+    position:absolute;left:6%;right:6%;top:6%;height:88%;
+    background:
+      repeating-linear-gradient(180deg,transparent 0 27px,rgba(29,53,87,.14) 27px 28px),
+      var(--papel);
+    background-position:0 46px;
+    border-radius:4px;z-index:2;
+    padding:16px 22px;text-align:left;
+    font-family:'Caveat',cursive;font-size:1.7rem;color:var(--tinta-carta);
+    transition:transform .6s cubic-bezier(.45,0,.2,1);
+  }
+  .envelope.open .env-letter{transform:translateY(-62%);transition:transform 1s cubic-bezier(.22,1,.36,1) .75s}
+
+  /* bolsillo: tres solapas fijas */
+  .env-pocket{position:absolute;inset:0;z-index:3;border-radius:8px;overflow:hidden}
+  .env-pocket i{position:absolute;inset:0;display:block}
+  .env-pocket .l{background:linear-gradient(90deg,#F1E2C4,#E9D5AE);clip-path:polygon(0 0,52% 52%,0 100%)}
+  .env-pocket .r{background:linear-gradient(270deg,#F1E2C4,#E9D5AE);clip-path:polygon(100% 0,48% 52%,100% 100%)}
+  .env-pocket .b{background:linear-gradient(0deg,#F6EAD0,#EEDDBA);clip-path:polygon(0 100%,50% 44%,100% 100%)}
+
+  .env-address{
+    position:absolute;left:0;right:0;bottom:9%;z-index:4;
+    font-family:'Caveat',cursive;color:var(--tinta-carta);text-align:center;
+    line-height:1.05;pointer-events:none;
+  }
+  .env-address b{display:block;font-weight:700;font-size:clamp(1.5rem,4.6vw,2.1rem)}
+  .env-address span{display:block;font-size:clamp(1.1rem,3.4vw,1.45rem)}
+  .env-address span.np{font-weight:700;color:var(--rojo);letter-spacing:.06em}
+
+  .stamp{
+    position:absolute;right:5%;bottom:10%;z-index:4;width:15%;
+    transform:rotate(6deg);pointer-events:none;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,.2));
+  }
+  .postmark{position:absolute;right:15%;bottom:16%;z-index:4;width:20%;opacity:.55;pointer-events:none;transform:rotate(-12deg)}
+
+  /* solapa superior con el sello de lacre */
+  .env-flap{
+    position:absolute;left:0;right:0;top:0;height:52%;z-index:5;
+    transform-origin:50% 0;
+    transform-style:preserve-3d;
+    animation:peek 6s ease-in-out 2.5s infinite;
+    /* al cerrar: primero entra la carta, luego baja la solapa */
+    transition:transform .75s cubic-bezier(.45,0,.2,1) .5s,z-index 0s .88s;
+  }
+  .env-flap .shape{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,#E6CFA2,#DDC290);
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    border-radius:8px 8px 0 0;
+  }
+  /* sombra suave bajo la solapa */
+  .env-flap .shadow{
+    position:absolute;inset:0;transform:translateY(5px);
+    background:rgba(90,60,20,.22);
+    clip-path:polygon(0 0,100% 0,50% 100%);filter:blur(3px);
+  }
+  .envelope.open .env-flap{animation:none;transform:rotateX(180deg);z-index:1;
+    transition:transform .75s cubic-bezier(.45,0,.2,1),z-index 0s .38s}
+
+  /* pista sutil: la solapa se levanta un poco cada pocos segundos */
+  @keyframes peek{
+    0%,78%,100%{transform:rotateX(0)}
+    84%{transform:rotateX(24deg)}
+    90%{transform:rotateX(6deg)}
+    94%{transform:rotateX(12deg)}
+  }
+
+  .seal{
+    position:absolute;left:50%;top:100%;width:64px;height:64px;margin:-38px 0 0 -32px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#E0474D,#B11F25 55%,#7E1418);
+    box-shadow:0 4px 10px rgba(0,0,0,.35),inset 0 -3px 6px rgba(0,0,0,.25),inset 0 2px 4px rgba(255,255,255,.25);
+    display:grid;place-items:center;
+    backface-visibility:hidden;
+    animation:glow 2.6s ease-in-out infinite;
+    transition:transform .35s 1.2s,opacity .35s 1.2s;
+  }
+  .seal::before{
+    content:"";position:absolute;inset:-5px;border-radius:46% 54% 50% 50%;
+    background:inherit;z-index:-1;opacity:.85;
+  }
+  .seal svg{width:30px;height:30px}
+  @keyframes glow{
+    0%,100%{box-shadow:0 4px 10px rgba(0,0,0,.35),0 0 0 0 rgba(241,220,156,0),inset 0 -3px 6px rgba(0,0,0,.25)}
+    50%{box-shadow:0 4px 10px rgba(0,0,0,.35),0 0 0 8px rgba(241,220,156,.22),inset 0 -3px 6px rgba(0,0,0,.25)}
+  }
+  .envelope.open .seal{opacity:0;transform:scale(.6) rotate(-20deg);animation:none;transition-delay:0s}
+
+  .tap-hint{
+    margin-top:26px;font-family:'Caveat',cursive;font-size:1.35rem;color:var(--oro-claro);
+    opacity:.75;transition:opacity .3s;
+  }
+  .envelope.open + .tap-hint{opacity:0}
+
+  /* ============ CARTA ============ */
+  .letter{
+    --lh:2.1rem;
+    position:relative;
+    width:min(720px,100%);
+    margin:0 auto;
+    padding:calc(var(--lh)*1.5) clamp(22px,6vw,64px) calc(var(--lh)*1.5) clamp(48px,10vw,96px);
+    background:
+      linear-gradient(90deg,transparent clamp(34px,7vw,70px),rgba(192,39,45,.35) clamp(34px,7vw,70px),rgba(192,39,45,.35) calc(clamp(34px,7vw,70px) + 2px),transparent calc(clamp(34px,7vw,70px) + 2px)),
+      repeating-linear-gradient(180deg,transparent 0 calc(var(--lh) - 1px),rgba(29,53,87,.13) calc(var(--lh) - 1px) var(--lh)),
+      var(--papel);
+    background-position:0 0,0 calc(var(--lh)*1.5 - 6px),0 0;
+    color:var(--tinta-carta);
+    font-family:'Caveat',cursive;
+    font-size:clamp(1.35rem,3.4vw,1.6rem);
+    line-height:var(--lh);
+    border-radius:4px;
+    box-shadow:0 30px 60px -24px rgba(0,0,0,.6),0 0 0 1px rgba(212,175,90,.4);
+    transform:rotate(-.6deg);
+  }
+  .letter[hidden]{display:none}
+  .letter.show{animation:unfold .8s cubic-bezier(.22,1,.36,1) both}
+  @keyframes unfold{
+    from{opacity:0;transform:translateY(60px) scale(.94) rotate(-2deg)}
+    to{opacity:1;transform:translateY(0) scale(1) rotate(-.6deg)}
+  }
+  .letter p{margin:0 0 var(--lh)}
+  .letter .date{text-align:right;color:var(--tinta-soft)}
+  .letter .hello{font-weight:700;font-size:1.25em}
+
+  .letter ol{list-style:none;counter-reset:g;margin:0 0 var(--lh)}
+  .letter li{counter-increment:g;position:relative;padding-left:1.7em}
+  .letter li::before{
+    content:counter(g) ".";position:absolute;left:0;font-weight:700;color:var(--verde);
+  }
+  .gift{
+    font:inherit;color:var(--rojo);background:none;border:0;padding:0;cursor:pointer;text-align:left;
+    text-decoration:underline;text-decoration-style:wavy;text-decoration-color:rgba(192,39,45,.45);
+    text-underline-offset:5px;text-decoration-thickness:1px;
+    transition:color .2s,transform .2s;display:inline;
+  }
+  .gift:hover{color:var(--rojo-dark);text-decoration-color:var(--rojo-dark)}
+  .gift:focus-visible{outline:2px dashed var(--oro-dark);outline-offset:3px;border-radius:4px}
+  .must{color:var(--oro-dark);font-weight:700;margin-left:.25em}
+
+  .sign{text-align:right;margin:0}
+  .sign b{display:block;font-size:1.5em;font-weight:700;color:var(--rojo)}
+  .letter .pd{color:var(--tinta-soft);font-size:.9em;margin:var(--lh) 0 0}
+
+  .letter .holly-top{position:absolute;top:-22px;right:28px;width:84px;transform:rotate(8deg)}
+
+  .reseal{
+    display:block;margin:34px auto 0;
+    font-family:'Caveat',cursive;font-size:1.3rem;color:var(--oro-claro);
+    background:none;border:1px solid rgba(212,175,90,.5);border-radius:50px;
+    padding:6px 20px;cursor:pointer;transition:border-color .2s,background .2s;
+  }
+  .reseal:hover{border-color:var(--oro);background:rgba(255,253,248,.06)}
+  .reseal[hidden]{display:none}
+
+  /* ============ POPUP DEL REGALO ============ */
+  dialog.gift-modal{
+    border:0;padding:0;background:transparent;
+    width:min(460px,calc(100vw - 32px));max-height:calc(100vh - 40px);
+    margin:auto;overflow:visible;
+  }
+  dialog.gift-modal::backdrop{background:rgba(6,20,14,.72);backdrop-filter:blur(3px)}
+  dialog.gift-modal[open] .card{animation:pop .45s cubic-bezier(.22,1,.36,1)}
+  @keyframes pop{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:none}}
+
   .card{
     --cinta:7px;
     padding:var(--cinta);
@@ -209,29 +357,29 @@
     border-radius:var(--r);
     display:flex;flex-direction:column;
     position:relative;
+    max-height:calc(100vh - 40px);
     box-shadow:0 0 0 1px rgba(212,175,90,.7),var(--shadow);
-    transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;
-    opacity:0;transform:translateY(24px);
   }
   .card .ph,.card .body{box-shadow:0 0 0 1px rgba(212,175,90,.55)}
-  .card.in{opacity:1;transform:translateY(0);
-    transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1),box-shadow .4s;}
-  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
-
   .card .ph{
-    position:relative;aspect-ratio:4/3;overflow:hidden;
+    position:relative;aspect-ratio:4/3;overflow:hidden;flex-shrink:0;
     background:#F3EDE0;
     border-radius:calc(var(--r) - var(--cinta)) calc(var(--r) - var(--cinta)) 0 0;
   }
-  .card .ph img{
-    width:100%;height:100%;object-fit:cover;display:block;
-    transition:transform .7s cubic-bezier(.22,1,.36,1);
-  }
-  .card:hover .ph img{transform:scale(1.05)}
+  .card .ph img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
 
-  /* lazo dorado en la esquina */
   .bow{position:absolute;top:-10px;left:50%;width:46px;margin-left:-23px;z-index:3;
     filter:drop-shadow(0 3px 4px rgba(0,0,0,.3))}
+
+  .close{
+    position:absolute;top:-14px;right:-14px;z-index:4;
+    width:38px;height:38px;border-radius:50%;
+    background:var(--rojo);color:#fff;border:2px solid var(--oro);
+    font-size:1.3rem;line-height:1;cursor:pointer;
+    box-shadow:0 6px 14px -6px rgba(0,0,0,.6);
+    display:grid;place-items:center;
+  }
+  .close:hover{background:var(--rojo-dark)}
 
   .badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}
   .badge{
@@ -251,15 +399,15 @@
   .prio.baja{background:var(--oro-dark)}
 
   .card .body{
-    padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;
-    background:var(--papel);
+    padding:20px 20px 22px;display:flex;flex-direction:column;
+    background:var(--papel);overflow:auto;min-height:0;
     border-radius:0 0 calc(var(--r) - var(--cinta)) calc(var(--r) - var(--cinta));
   }
   .card h3{
-    font-family:'Fraunces',serif;font-weight:600;font-size:1.18rem;line-height:1.25;
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;line-height:1.25;
     margin-bottom:6px;color:var(--pino);
   }
-  .card .desc{font-size:.88rem;color:var(--tinta-soft);line-height:1.5;flex:1}
+  .card .desc{font-size:.9rem;color:var(--tinta-soft);line-height:1.5}
 
   .price{
     font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:var(--rojo);
@@ -273,8 +421,8 @@
   .links{display:flex;gap:8px;flex-wrap:wrap}
   .links a{
     flex:1 1 auto;text-align:center;text-decoration:none;
-    font-weight:600;font-size:.84rem;
-    padding:10px 14px;border-radius:10px;
+    font-weight:600;font-size:.86rem;
+    padding:11px 14px;border-radius:10px;
     background:var(--verde);color:#fff;
     border:1px solid var(--verde);
     transition:background .2s,border-color .2s,transform .2s;
@@ -282,30 +430,25 @@
   .links a:hover{background:var(--rojo);border-color:var(--oro);transform:translateY(-2px)}
   .links a:focus-visible{outline:2px solid var(--oro);outline-offset:2px}
   .links a::after{content:"↗";margin-left:6px}
+  .links .none{font-size:.86rem;color:var(--tinta-soft);font-style:italic}
 
-  /* estado vacío / carga */
-  .msg{
-    grid-column:1/-1;text-align:center;padding:60px 20px;
-    color:rgba(251,246,234,.8);font-size:1rem;
-  }
+  .msg{text-align:center;padding:60px 20px;color:rgba(251,246,234,.8)}
   .msg b{color:var(--oro-claro)}
-  .loader{
-    width:34px;height:34px;border-radius:50%;margin:0 auto 16px;
-    border:3px solid rgba(212,175,90,.25);border-top-color:var(--rojo);
-    animation:spin .8s linear infinite;
-  }
-  @keyframes spin{to{transform:rotate(360deg)}}
 
   @media (max-width:680px){
     header.hero{padding:90px 18px 56px}
     .tree{width:90px}
     .stat{padding:12px 16px;min-width:0}
-    .grid{padding:26px 0 72px}
+    .scene{padding-top:110px}
+    .seal{width:50px;height:50px;margin:-30px 0 0 -25px}
+    .seal svg{width:24px;height:24px}
+    .env-letter{font-size:1.3rem;padding:10px 14px}
+    .close{top:-12px;right:-6px}
   }
 
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-    .card{opacity:1;transform:none}
+    .scene{opacity:1;transform:none}
   }
 </style>
 </head>
@@ -313,7 +456,6 @@
 
 <canvas class="snow" id="snow" aria-hidden="true"></canvas>
 
-<!-- lazo reutilizado en cada tarjeta -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
@@ -326,10 +468,17 @@
       <path d="M33 17 L42 38 L36 35 L33 39 L30 18 Z" fill="#A8832F"/>
       <ellipse cx="30" cy="15" rx="5" ry="4.5" fill="#C9A24B"/>
     </symbol>
+    <symbol id="hollyShape" viewBox="0 0 84 28">
+      <path d="M42 14 C34 4 22 4 14 8 C18 10 16 14 20 16 C16 18 20 22 18 24 C26 24 36 22 42 14 Z" fill="#1F6B45"/>
+      <path d="M42 14 C50 4 62 4 70 8 C66 10 68 14 64 16 C68 18 64 22 66 24 C58 24 48 22 42 14 Z" fill="#2A8058"/>
+      <circle cx="38" cy="15" r="4" fill="#C0272D"/>
+      <circle cx="46" cy="15" r="4" fill="#C0272D"/>
+      <circle cx="42" cy="9" r="4" fill="#D0343A"/>
+    </symbol>
   </defs>
 </svg>
 
-<!-- ===================== CONTENIDO ===================== -->
+<!-- ===================== PORTADA ===================== -->
 <header class="hero">
   <div class="lights" aria-hidden="true">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" id="lightsSvg">
@@ -356,36 +505,97 @@
   <h1 id="titulo">Mi <span class="pop">Wishlist</span></h1>
   <p class="sub" id="subtitulo">Cargando la lista…</p>
 
-  <svg class="holly" viewBox="0 0 84 28" aria-hidden="true">
-    <path d="M42 14 C34 4 22 4 14 8 C18 10 16 14 20 16 C16 18 20 22 18 24 C26 24 36 22 42 14 Z" fill="#1F6B45"/>
-    <path d="M42 14 C50 4 62 4 70 8 C66 10 68 14 64 16 C68 18 64 22 66 24 C58 24 48 22 42 14 Z" fill="#2A8058"/>
-    <circle cx="38" cy="15" r="4" fill="#C0272D"/>
-    <circle cx="46" cy="15" r="4" fill="#C0272D"/>
-    <circle cx="42" cy="9" r="4" fill="#D0343A"/>
-  </svg>
+  <svg class="holly" viewBox="0 0 84 28" aria-hidden="true"><use href="#hollyShape"/></svg>
 
   <div class="stats" id="stats"></div>
-  <a class="scroll-hint" href="#lista" aria-label="Ir a la lista">
-    <span>Ver la lista</span>
+  <a class="scroll-hint" href="#carta" aria-label="Ir a la carta">
+    <span>Ver la carta</span>
     <svg width="18" height="10" viewBox="0 0 22 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2 L11 11 L20 2"/></svg>
   </a>
 </header>
 
+<!-- ===================== SOBRE + CARTA ===================== -->
 <div class="wrap">
-  <span id="lista" class="anchor" aria-hidden="true"></span>
-  <nav class="controls" id="controls" aria-label="Filtrar regalos"></nav>
+  <span id="carta" class="anchor" aria-hidden="true"></span>
+  <section class="mail" id="mail">
 
-  <main class="grid" id="grid">
-    <div class="msg"><div class="loader"></div>Cargando la lista…</div>
-  </main>
+    <div class="scene" id="scene">
+      <button class="envelope" id="envelope" type="button" aria-label="Abrir la carta para Papá Noel">
+        <div class="env-back"></div>
+
+        <div class="env-letter" aria-hidden="true">Querido Papá Noel:</div>
+
+        <div class="env-pocket" aria-hidden="true"><i class="l"></i><i class="r"></i><i class="b"></i></div>
+
+        <div class="env-address" aria-hidden="true">
+          <b>Para: Papá Noel</b>
+          <span>Taller de Regalos, 1</span>
+          <span class="np">POLO NORTE</span>
+        </div>
+
+        <!-- sello de correos -->
+        <svg class="stamp" viewBox="0 0 60 72" aria-hidden="true">
+          <path d="M0 0h60v72H0z" fill="#FFFDF8"/>
+          <g fill="#B89262">
+            <circle cx="0" cy="6" r="3"/><circle cx="0" cy="18" r="3"/><circle cx="0" cy="30" r="3"/><circle cx="0" cy="42" r="3"/><circle cx="0" cy="54" r="3"/><circle cx="0" cy="66" r="3"/>
+            <circle cx="60" cy="6" r="3"/><circle cx="60" cy="18" r="3"/><circle cx="60" cy="30" r="3"/><circle cx="60" cy="42" r="3"/><circle cx="60" cy="54" r="3"/><circle cx="60" cy="66" r="3"/>
+            <circle cx="6" cy="0" r="3"/><circle cx="18" cy="0" r="3"/><circle cx="30" cy="0" r="3"/><circle cx="42" cy="0" r="3"/><circle cx="54" cy="0" r="3"/>
+            <circle cx="6" cy="72" r="3"/><circle cx="18" cy="72" r="3"/><circle cx="30" cy="72" r="3"/><circle cx="42" cy="72" r="3"/><circle cx="54" cy="72" r="3"/>
+          </g>
+          <rect x="6" y="6" width="48" height="60" fill="#1F6B45"/>
+          <path d="M30 14 l2.4 5 5.5.6 -4.1 3.7 1.2 5.4 -5-2.9 -5 2.9 1.2-5.4 -4.1-3.7 5.5-.6z" fill="#F1DC9C"/>
+          <path d="M30 26 L20 42 h5 L16 54 h28 L35 42 h5 Z" fill="#2A8058" stroke="#F1DC9C" stroke-width=".8"/>
+          <rect x="27" y="54" width="6" height="5" fill="#7A4A26"/>
+          <text x="30" y="64" text-anchor="middle" font-family="Inter,sans-serif" font-size="5" font-weight="600" fill="#F1DC9C">2026</text>
+        </svg>
+
+        <!-- matasellos -->
+        <svg class="postmark" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#8F1A1F" stroke-width="2"/>
+          <circle cx="40" cy="40" r="22" fill="none" stroke="#8F1A1F" stroke-width="1"/>
+          <defs><path id="pm" d="M14 40 a26 26 0 1 1 52 0 a26 26 0 1 1 -52 0"/></defs>
+          <text font-family="Inter,sans-serif" font-size="7" font-weight="600" fill="#8F1A1F" letter-spacing="1.5"><textPath href="#pm">POLO NORTE · 24 DIC ·</textPath></text>
+          <text x="40" y="44" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#8F1A1F">2026</text>
+        </svg>
+
+        <div class="env-flap" aria-hidden="true">
+          <div class="shadow"></div>
+          <div class="shape"></div>
+          <div class="seal">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16l-5.4 3 1.2-6-4.5-4.2 6.1-.7z" fill="#F1DC9C" opacity=".9"/></svg>
+          </div>
+        </div>
+      </button>
+      <p class="tap-hint" aria-hidden="true">Toca el sello para abrirla</p>
+    </div>
+
+    <article class="letter" id="letter" hidden>
+      <svg class="holly-top" viewBox="0 0 84 28" aria-hidden="true"><use href="#hollyShape"/></svg>
+      <p class="date" id="letterDate"></p>
+      <p class="hello">Querido Papá Noel y queridos Reyes Magos:</p>
+      <p>Te escribo para contarte que este año me he portado muy, muy bien. He trabajado muchísimo, he ido a todas las reuniones (incluso a las que podían haber sido un correo), he comido verdura alguna vez y casi no me he quejado. Bueno, un poco. Pero poco.</p>
+      <p>Por eso, este año me atrevo a pedirte estas cosas:</p>
+      <ol id="giftList"></ol>
+      <p>Te dejaré leche y galletas al lado del árbol, y algo de comer para los renos. Prometo seguir portándome bien el año que viene (o por lo menos intentarlo).</p>
+      <p class="sign">Un abrazo enorme,<b id="firma">Èric</b></p>
+      <p class="pd" id="pd">P.D.: Toca cada regalo para ver la foto, el precio y dónde comprarlo.</p>
+    </article>
+    <button class="reseal" id="reseal" type="button" hidden>Volver a guardar la carta en el sobre</button>
+
+  </section>
 </div>
+
+<!-- ===================== POPUP ===================== -->
+<dialog class="gift-modal" id="giftModal" aria-label="Detalle del regalo">
+  <div id="giftModalBody"></div>
+</dialog>
 
 <script>
 const $ = (s,c=document)=>c.querySelector(s);
-const $$ = (s,c=document)=>[...c.querySelectorAll(s)];
 const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-/* ---------- guirnalda: bombillas sobre el cable ---------- */
+/* ---------- guirnalda ---------- */
 (function(){
   const path=$('#lightsSvg path'), g=$('#bulbs');
   const len=path.getTotalLength();
@@ -404,7 +614,7 @@ const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
   g.innerHTML=html;
 })();
 
-/* ---------- nieve con algún destello dorado ---------- */
+/* ---------- nieve ---------- */
 (function(){
   if(reduceMotion) return;
   const cv=$('#snow'), ctx=cv.getContext('2d');
@@ -415,42 +625,31 @@ const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
     cv.style.width=innerWidth+'px'; cv.style.height=innerHeight+'px';
   }
   resize(); addEventListener('resize',resize);
-
   const rand=(a,b)=>a+Math.random()*(b-a);
   const flake=y=>({
-    x:rand(0,W), y:y??rand(0,H),
-    r:rand(1,3)*DPR,
-    vy:rand(.3,.9)*DPR,
-    sway:rand(.2,.7)*DPR,
-    phase:rand(0,Math.PI*2),
-    alpha:rand(.35,.85),
+    x:rand(0,W), y:y??rand(0,H), r:rand(1,3)*DPR, vy:rand(.3,.9)*DPR,
+    sway:rand(.2,.7)*DPR, phase:rand(0,Math.PI*2), alpha:rand(.35,.85),
     color:Math.random()<.15?'#F1DC9C':'#FFFFFF'
   });
-  const N = innerWidth<720 ? 45 : 90;
-  const flakes=Array.from({length:N},()=>flake());
-
-  function tick(){
+  const flakes=Array.from({length:innerWidth<720?45:90},()=>flake());
+  (function tick(){
     ctx.clearRect(0,0,W,H);
     for(let i=0;i<flakes.length;i++){
       const f=flakes[i];
-      f.phase+=.01;
-      f.x+=Math.sin(f.phase)*f.sway;
-      f.y+=f.vy;
+      f.phase+=.01; f.x+=Math.sin(f.phase)*f.sway; f.y+=f.vy;
       if(f.y-f.r>H){ flakes[i]=flake(-10); continue; }
-      ctx.globalAlpha=f.alpha;
-      ctx.fillStyle=f.color;
+      ctx.globalAlpha=f.alpha; ctx.fillStyle=f.color;
       ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,7); ctx.fill();
     }
     ctx.globalAlpha=1;
     requestAnimationFrame(tick);
-  }
-  tick();
+  })();
 })();
 
 /* ---------- datos ---------- */
 const PRIO_ORDER={alta:0,media:1,baja:2};
 const PRIO_LABEL={alta:'Imprescindible',media:'Prioridad media',baja:'Prioridad baja'};
-let DATA=null, activeCat='Todo';
+let DATA=null, GIFTS=[];
 
 const num = v => { const n = typeof v==='number' ? v : parseFloat(String(v).replace(',','.')); return isFinite(n) ? n : null; };
 const fmt = (n,cur)=> new Intl.NumberFormat('es-ES').format(n)+' '+cur;
@@ -462,7 +661,7 @@ async function load(){
     DATA = await res.json();
     render();
   }catch(e){
-    $('#grid').innerHTML =
+    $('#mail').innerHTML =
       `<div class="msg">No pude leer <b>wishlist.json</b>.<br>
        Asegúrate de abrir la web desde un servidor (o que el archivo esté al lado del HTML).</div>`;
     console.error(e);
@@ -470,80 +669,96 @@ async function load(){
 }
 
 function render(){
-  $('#titulo').innerHTML = DATA.titulo.replace('Wishlist','<span class="pop">Wishlist</span>');
+  $('#titulo').innerHTML = esc(DATA.titulo).replace('Wishlist','<span class="pop">Wishlist</span>');
   $('#subtitulo').textContent = DATA.subtitulo;
 
   const cur = DATA.moneda||'€';
-  const items = DATA.regalos;
-  const total = items.reduce((a,r)=>a+(num(r.precio)||0),0);
-  const altas = items.filter(r=>r.prioridad==='alta').length;
+  GIFTS = [...DATA.regalos].sort((a,b)=>
+    (PRIO_ORDER[a.prioridad]??9)-(PRIO_ORDER[b.prioridad]??9) || (num(b.precio)||0)-(num(a.precio)||0));
+  const total = GIFTS.reduce((a,r)=>a+(num(r.precio)||0),0);
+  const altas = GIFTS.filter(r=>r.prioridad==='alta').length;
 
   $('#stats').innerHTML = `
-    <div class="stat"><b>${items.length}</b><span>deseos</span></div>
+    <div class="stat"><b>${GIFTS.length}</b><span>deseos</span></div>
     <div class="stat"><b>${altas}</b><span>imprescindibles</span></div>
     <div class="stat"><b>${fmt(total,cur)}</b><span>valor total</span></div>`;
 
-  // filtros
-  const cats=['Todo',...new Set(items.map(r=>r.categoria))];
-  $('#controls').innerHTML = cats.map(c=>
-    `<button class="chip${c===activeCat?' active':''}" data-cat="${c}">${c}</button>`).join('');
-  $$('#controls .chip').forEach(ch=>ch.onclick=()=>{
-    activeCat=ch.dataset.cat;
-    $$('#controls .chip').forEach(x=>x.classList.toggle('active',x===ch));
-    paint();
-  });
-
-  paint();
+  // carta
+  if(DATA.firma) $('#firma').textContent = DATA.firma;
+  $('#letterDate').textContent = 'A ' + new Intl.DateTimeFormat('es-ES',{day:'numeric',month:'long',year:'numeric'}).format(new Date());
+  $('#giftList').innerHTML = GIFTS.map((r,i)=>`
+    <li><button class="gift" type="button" data-i="${i}">${esc(r.carta||r.nombre)}</button>${
+      r.prioridad==='alta' ? '<span class="must" title="Imprescindible">(¡porfa!)</span>' : ''}</li>`).join('');
+  $('#giftList').onclick = e=>{
+    const b=e.target.closest('.gift'); if(b) openGift(GIFTS[b.dataset.i]);
+  };
 }
 
-function paint(){
+/* ---------- sobre ---------- */
+const scene=$('#scene'), envelope=$('#envelope'), letter=$('#letter'), reseal=$('#reseal');
+
+// aparece al bajar de la portada
+if(reduceMotion) scene.classList.add('in');
+else new IntersectionObserver((en,obs)=>{
+  if(en[0].isIntersecting){ scene.classList.add('in'); obs.disconnect(); }
+},{threshold:.25}).observe(scene);
+
+envelope.addEventListener('click',()=>{
+  if(envelope.classList.contains('open')) return;
+  envelope.classList.add('open');
+  const t = reduceMotion ? [0,0] : [1650,2050];
+  setTimeout(()=>scene.classList.add('gone'), t[0]);
+  setTimeout(()=>{
+    scene.hidden=true;
+    letter.hidden=false; reseal.hidden=false;
+    letter.classList.add('show');
+    const first=$('.gift',letter);
+    if(first) first.focus({preventScroll:true});
+  }, t[1]);
+});
+
+reseal.addEventListener('click',()=>{
+  letter.hidden=true; reseal.hidden=true; letter.classList.remove('show');
+  envelope.classList.remove('open');
+  scene.classList.remove('gone');
+  scene.hidden=false;
+  scene.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
+  envelope.focus({preventScroll:true});
+});
+
+/* ---------- popup del regalo ---------- */
+const modal=$('#giftModal');
+
+function openGift(r){
   const cur = DATA.moneda||'€';
-  let items=[...DATA.regalos].sort((a,b)=>
-    (PRIO_ORDER[a.prioridad]??9)-(PRIO_ORDER[b.prioridad]??9) || (num(b.precio)||0)-(num(a.precio)||0));
-  if(activeCat!=='Todo') items=items.filter(r=>r.categoria===activeCat);
-
-  const grid=$('#grid');
-  if(!items.length){grid.innerHTML='<div class="msg">No hay nada en esta categoría.</div>';return;}
-
-  grid.innerHTML = items.map(r=>{
-    const links=(r.links||[])
-      .filter(l=>l.url)
-      .map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${l.tienda}</a>`).join('');
-    const p = num(r.precio);
-    const precio = p===null
-      ? `<div class="price tbd">Precio por confirmar</div>`
-      : `<div class="price">${fmt(p,cur)} <small>máximo</small></div>`;
-    return `
+  const links=(r.links||[]).filter(l=>l.url)
+    .map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.tienda)}</a>`).join('');
+  const p = num(r.precio);
+  const precio = p===null
+    ? `<div class="price tbd">Precio por confirmar</div>`
+    : `<div class="price">${fmt(p,cur)} <small>máximo</small></div>`;
+  $('#giftModalBody').innerHTML = `
     <article class="card">
+      <button class="close" type="button" aria-label="Cerrar">×</button>
       <svg class="bow" viewBox="0 0 60 40" aria-hidden="true"><use href="#bowShape"/></svg>
       <div class="ph">
-        <div class="badges"><span class="badge cat">${r.categoria}</span></div>
-        <span class="prio ${r.prioridad}">${PRIO_LABEL[r.prioridad]||r.prioridad}</span>
-        <img src="${r.foto}" alt="${r.nombre}" loading="lazy"
+        <div class="badges"><span class="badge">${esc(r.categoria)}</span></div>
+        <span class="prio ${esc(r.prioridad)}">${esc(PRIO_LABEL[r.prioridad]||r.prioridad)}</span>
+        <img src="${esc(r.foto)}" alt="${esc(r.nombre)}"
              onerror="this.style.opacity=0;this.parentElement.style.background='linear-gradient(135deg,#C0272D,#1F6B45)'">
       </div>
       <div class="body">
-        <h3>${r.nombre}</h3>
-        <p class="desc">${r.descripcion||''}</p>
+        <h3>${esc(r.nombre)}</h3>
+        ${r.descripcion ? `<p class="desc">${esc(r.descripcion)}</p>` : ''}
         ${precio}
-        <div class="links">${links||'<span class="desc">Sin links aún</span>'}</div>
+        <div class="links">${links||'<span class="none">Sin links todavía</span>'}</div>
       </div>
     </article>`;
-  }).join('');
-
-  // reveal al hacer scroll
-  const cards=$$('.card');
-  if(reduceMotion){cards.forEach(c=>c.classList.add('in'));return;}
-  const io=new IntersectionObserver((entries,obs)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        setTimeout(()=>en.target.classList.add('in'), cards.indexOf(en.target)%4*70);
-        obs.unobserve(en.target);
-      }
-    });
-  },{threshold:.12});
-  cards.forEach(c=>io.observe(c));
+  $('.close',modal).onclick=()=>modal.close();
+  modal.showModal();
 }
+// cerrar al pulsar fuera de la tarjeta
+modal.addEventListener('click',e=>{ if(!e.target.closest('.card')) modal.close(); });
 
 load();
 </script>
